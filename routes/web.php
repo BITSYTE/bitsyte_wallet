@@ -19,4 +19,14 @@ Route::group(['namespace' => 'Web', 'prefix' => 'test'], function () {
         Route::get('/qr/{address}', 'AddressController@qr')->name('qr');
 
     });
+
+    //Wallets
+    Route::group(['prefix' => 'wallets', 'as' => 'wallets.'], function () {
+        Route::get('/create/{address}', 'WalletsController@create')->name('create');
+    });
+
+    //Transaction
+    Route::group(['prefix' => 'transactions', 'as' => 'transactions.'], function () {
+        Route::get('/create', 'TransactionsController@create')->name('create');
+    });
 });

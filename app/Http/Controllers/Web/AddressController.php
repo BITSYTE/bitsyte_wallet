@@ -2,20 +2,20 @@
 
 namespace App\Http\Controllers\Web;
 
-use BaconQrCode\Encoder\QrCode;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use BlockCypher\Rest\ApiContext;
 use BlockCypher\Auth\SimpleTokenCredential;
 use BlockCypher\Client\AddressClient;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class AddressController extends Controller
 {
-    private $token = 'e6dc11f4817741b4a1092e9cca8504ed';
+    private $token;
     private $apiContext;
 
     public function __construct()
     {
+        $this->token = env('BLOCKCYPHER_TOKEN');
         $this->apiContext = new ApiContext(new SimpleTokenCredential($this->token));
 
         $this->apiContext = ApiContext::create(env('BLOCKCYPHER_ENV', 'test3'), 'btc', 'v1', new SimpleTokenCredential($this->token),
@@ -44,8 +44,7 @@ class AddressController extends Controller
 
     public function qr($address)
     {
-        echo QrCode::generate($address);
-        return true;
+        return view('address.qr', ['address' => $address]);
     }
 
 
