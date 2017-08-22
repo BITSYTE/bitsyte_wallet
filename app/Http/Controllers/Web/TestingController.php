@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use BlockCypher\Rest\ApiContext;
 use BlockCypher\Auth\SimpleTokenCredential;
+use BlockCypher\Api\Address;
 
 class TestingController extends Controller
 {
@@ -19,7 +20,9 @@ class TestingController extends Controller
 
     public function index()
     {
-
+        $addressClient = new Address($this->apiContext);
+        $addressKeyChain = $addressClient->getAddress();
+        return $addressKeyChain;
     }
 
 }
