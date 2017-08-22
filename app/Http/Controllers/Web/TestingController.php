@@ -22,4 +22,10 @@ class TestingController extends Controller
 
     }
 
+    public function CreateAddress()
+    {
+        $addressClient = new AddressClient($this->apiContext['BTC.test3']);
+        $addressBalance = $addressClient->getBalance('1DEP8i3QJCsomS4BSMY2RpU1upv62aGvhD');
+    }
+
 }
