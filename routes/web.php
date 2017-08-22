@@ -11,6 +11,7 @@
 |
 */
 
+
 Route::group(['namespace' => 'Web', 'prefix' => 'test'], function () {
     //Address
     Route::group(['prefix' => 'address', 'as' => 'address.'], function () {

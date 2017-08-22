@@ -6,7 +6,8 @@
     "type": "project",
     "require": {
         "php": ">=5.6.4",
-        "blockcypher/php-client": "^1.5",
+        "bacon/bacon-qr-code": "^1.0",
+        "blockcypher/php-client": "*",
         "doctrine/dbal": "^2.6",
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0",

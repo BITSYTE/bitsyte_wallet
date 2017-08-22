@@ -1,0 +1,16 @@
+[22-08-2017 05:54:39] BlockCypher\Core\BlockCypherHttpConnection: INFO	: POST https://api.blockcypher.com/v1/btc/test3/addrs?token=e6dc11f4817741b4a1092e9cca8504ed
+[22-08-2017 05:54:40] BlockCypher\Core\BlockCypherHttpConnection: DEBUG	: Request Headers 	: POST /v1/btc/test3/addrs?token=e6dc11f4817741b4a1092e9cca8504ed HTTP/1.1, Host: api.blockcypher.com, Accept: */*, Content-Type: application/json, User-Agent: BlockCypherSDK/BlockCypher-PHP-SDK 1.2.1 (lang=PHP;v=7.1.8-2+ubuntu16.04.1+deb.sury.org+4;bit=64;os=Linux_4.4.0-51-generic;machine=x86_64;openssl=1.1.0f;curl=7.47.0), BlockCypher-Request-Id: 32322380902459150338127850693, Content-Length: 0, , 
+[22-08-2017 05:54:40] BlockCypher\Core\BlockCypherHttpConnection: DEBUG	: No Request Payload
+--------------------------------------------------------------------------------------------------------------------------------
+
+[22-08-2017 05:54:40] BlockCypher\Core\BlockCypherHttpConnection: INFO	: Response Status 	: 201
+[22-08-2017 05:54:40] BlockCypher\Core\BlockCypherHttpConnection: DEBUG	: Response Headers	: HTTP/1.1 201 Created, Server: nginx/1.11.10, Date: Tue, 22 Aug 2017 05:54:40 GMT, Content-Type: application/json, Content-Length: 281, Connection: keep-alive, Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Methods: GET, POST, PUT, DELETE, Access-Control-Allow-Origin: *, X-Ratelimit-Remaining: 198, , 
+[22-08-2017 05:54:40] BlockCypher\Core\BlockCypherHttpConnection: DEBUG	: Response Data 	: {
+  "private": "1cd1abd5b9ea91080c64a8d230f4382e3597b8565202b3d820d3b763315e7388",
+  "public": "026d5cf5448940ce1aded18588c13009b299be8c6aa3186cad0924107ebc021ed7",
+  "address": "mgaG5owKV1KbNENeJ5M343iyEBw9xsoasm",
+  "wif": "cNYiqHHPK4X9z8EkFLniZPWCpfT13eNxECDQbznSn4uxemWcJrrH"
+}
+
+================================================================================================================================
+
