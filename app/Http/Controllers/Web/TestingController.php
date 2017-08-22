@@ -20,9 +20,7 @@ class TestingController extends Controller
 
     public function index()
     {
-        $addressClient = new Address($this->apiContext);
-        $addressKeyChain = $addressClient->getAddress();
-        return $addressKeyChain;
+        //
     }
 
 }

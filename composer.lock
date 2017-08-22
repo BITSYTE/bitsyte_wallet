@@ -50,16 +50,16 @@
         },
         {
             "name": "bitwasp/bitcoin",
-            "version": "v0.0.33.2",
+            "version": "v0.0.33.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Bit-Wasp/bitcoin-php.git",
-                "reference": "c42b07de4c62f10c387200f4efc65ed6a4badc00"
+                "reference": "472018c3548f2a4835f9c70de3dff58af90ef277"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Bit-Wasp/bitcoin-php/zipball/c42b07de4c62f10c387200f4efc65ed6a4badc00",
-                "reference": "c42b07de4c62f10c387200f4efc65ed6a4badc00",
+                "url": "https://api.github.com/repos/Bit-Wasp/bitcoin-php/zipball/472018c3548f2a4835f9c70de3dff58af90ef277",
+                "reference": "472018c3548f2a4835f9c70de3dff58af90ef277",
                 "shasum": ""
             },
             "require": {
@@ -104,7 +104,7 @@
             ],
             "description": "PHP Bitcoin library with functions for transactions, signatures, serialization, Random/Deterministic ECDSA keys, blocks, RPC bindings",
             "homepage": "https://github.com/bit-wasp/bitcoin-php",
-            "time": "2017-06-23T10:36:40+00:00"
+            "time": "2017-08-10T21:17:10+00:00"
         },
         {
             "name": "bitwasp/buffertools",

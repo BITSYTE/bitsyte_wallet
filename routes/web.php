@@ -11,4 +11,10 @@
 |
 */
 
-Route::get('address', 'Web\TestingController@index');
+
+Route::group(['namespace' => 'Web', 'prefix' => 'test'], function () {
+    //Address
+    Route::group(['prefix' => 'address', 'as' => 'address.'], function () {
+        Route::get('/create', 'AddressController@create')->name('create');
+    });
+});
