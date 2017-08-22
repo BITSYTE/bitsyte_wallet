@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Web;
 
-use BlockCypher\Api\AddressCreateResponse;
+use BaconQrCode\Encoder\QrCode;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use BlockCypher\Rest\ApiContext;
@@ -18,9 +18,7 @@ class AddressController extends Controller
     {
         $this->apiContext = new ApiContext(new SimpleTokenCredential($this->token));
 
-        $this->apiContext = ApiContext::create(
-            'test3', 'btc', 'v1',
-            new SimpleTokenCredential($this->token),
+        $this->apiContext = ApiContext::create(env('BLOCKCYPHER_ENV', 'test3'), 'btc', 'v1', new SimpleTokenCredential($this->token),
             array('log.LogEnabled' => true, 'log.FileName' => 'BlockCypher.log', 'log.LogLevel' => 'DEBUG')
         );
     }
@@ -36,5 +34,19 @@ class AddressController extends Controller
         $addressKeyChain = $addressClient->generateAddress();
         dd($addressKeyChain);
     }
+
+    public function balance($address)
+    {
+        $addressClient = new AddressClient($this->apiContext);
+        $addressBalance = $addressClient->getBalance($address);
+        dd($addressBalance);
+    }
+
+    public function qr($address)
+    {
+        echo QrCode::generate($address);
+        return true;
+    }
+
 
 }

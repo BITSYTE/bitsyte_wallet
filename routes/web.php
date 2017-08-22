@@ -15,5 +15,8 @@ Route::group(['namespace' => 'Web', 'prefix' => 'test'], function () {
     //Address
     Route::group(['prefix' => 'address', 'as' => 'address.'], function () {
         Route::get('/create', 'AddressController@create')->name('create');
+        Route::get('/balance/{address}', 'AddressController@balance')->name('balance');
+        Route::get('/qr/{address}', 'AddressController@qr')->name('qr');
+
     });
 });
