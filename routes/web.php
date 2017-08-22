@@ -10,3 +10,10 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::group(['namespace' => 'Web', 'prefix' => 'test'], function () {
+    //Address
+    Route::group(['prefix' => 'address', 'as' => 'address.'], function () {
+        Route::get('/create', 'AddressController@create')->name('create');
+    });
+});
