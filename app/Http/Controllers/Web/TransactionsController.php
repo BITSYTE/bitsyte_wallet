@@ -17,16 +17,17 @@ class TransactionsController extends Controller
 
     public function __construct()
     {
-//        $this->token = env('BLOCKCYPHER_TOKEN');
-//        $this->apiContext = new ApiContext(new SimpleTokenCredential($this->token));
-//
-//        $this->apiContext = ApiContext::create(env('BLOCKCYPHER_ENV', 'test3'), 'btc', 'v1', new SimpleTokenCredential($this->token),
-//            array('log.LogEnabled' => true, 'log.FileName' => 'BlockCypher.log', 'log.LogLevel' => 'DEBUG')
-//        );
+        $this->token = env('BLOCKCYPHER_TOKEN');
+        $this->apiContext = new ApiContext(new SimpleTokenCredential($this->token));
+
+        $this->apiContext = ApiContext::create(env('BLOCKCYPHER_ENV', 'test3'), 'btc', 'v1', new SimpleTokenCredential($this->token),
+            array('log.LogEnabled' => true, 'log.FileName' => 'BlockCypher.log', 'log.LogLevel' => 'DEBUG')
+        );
     }
 
     public function create()
     {
+        //https://api.blockcypher.com/v1/bcy/test/txs/new    14iXYMe2rRgYtWsAkviJ4zsgj2oVXrN2up
         $response = Curl::to('https://api.blockcypher.com/v1/btc/main/txs/new')
             ->withData([
                 'inputs' => [
@@ -36,13 +37,12 @@ class TransactionsController extends Controller
                 ],
                 'outputs' => [
                     [
-                        'addresses' => ['14iXYMe2rRgYtWsAkviJ4zsgj2oVXrN2up'],
-                        'value' => 30000
+                        'addresses' => ['12MbApk7JwJWjWyozznH3Qc6uSSQHseAZ9'],
+                        'value' => 10000
                     ],
                 ],
-                'preference ' => 'low',
             ])
-            ->asJson(true)
+            ->asJson()
             ->post();
         dd($response);
 
