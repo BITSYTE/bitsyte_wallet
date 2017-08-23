@@ -11728,6 +11728,26 @@ namespace SimpleSoftwareIO\QrCode\Facades {
  
 }
 
+namespace Ixudra\Curl\Facades { 
+
+    class Curl {
+        
+        /**
+         * 
+         *
+         * @param $url string   The URL to which the request is to be sent
+         * @return \Ixudra\Curl\Builder 
+         * @static 
+         */ 
+        public static function to($url)
+        {
+            return \Ixudra\Curl\CurlService::to($url);
+        }
+         
+    }
+ 
+}
+
 
 namespace  { 
 
@@ -13793,6 +13813,8 @@ namespace  {
     class View extends \Illuminate\Support\Facades\View {}
 
     class QrCode extends \SimpleSoftwareIO\QrCode\Facades\QrCode {}
+
+    class Curl extends \Ixudra\Curl\Facades\Curl {}
  
 }
 

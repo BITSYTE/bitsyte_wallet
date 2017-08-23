@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Web;
 
-use BitWasp\Bitcoin\Transaction\Transaction;
 use BlockCypher\Auth\SimpleTokenCredential;
-use BlockCypher\Client\TXClient;
+use BlockCypher\Crypto\Signer;
 use BlockCypher\Rest\ApiContext;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Ixudra\Curl\Facades\Curl;
+use BitcoinPHP\BitcoinECDSA\BitcoinECDSA;
 
 class TransactionsController extends Controller
 {
@@ -28,7 +28,7 @@ class TransactionsController extends Controller
     public function create()
     {
         //https://api.blockcypher.com/v1/bcy/test/txs/new    14iXYMe2rRgYtWsAkviJ4zsgj2oVXrN2up
-        $response = Curl::to('https://api.blockcypher.com/v1/btc/main/txs/new?token=' . $this->token)
+        $new = Curl::to('https://api.blockcypher.com/v1/btc/main/txs/new')
             ->withData([
                 'inputs' => [
                     [
@@ -38,32 +38,40 @@ class TransactionsController extends Controller
                 'outputs' => [
                     [
                         'addresses' => ['12MbApk7JwJWjWyozznH3Qc6uSSQHseAZ9'],
-                        'value' => 10000
+                        'value' => 1000
                     ],
                 ],
             ])
-            ->asJson()
+            ->asJson(true)
             ->post();
-        dd($response);
+        dd($new);
 
-        //curl -d '{"inputs":[{"addresses": ["CEztKBAYNoUEEaPYbkyFeXC5v8Jz9RoZH9"]}],"outputs":[{"addresses": ["C1rGdt7QEPGiwPMFhNKNhHmyoWpa5X92pn"], "value": 1000000}]}'
+        $pKey = 'fadc3effee3b699881cc2c123c8df335f393460142d9fae5dd5c507b840b61f0';
+        $bitcoinECDSA = new BitcoinECDSA();
+        $bitcoinECDSA->setPrivateKey($pKey);
 
-//        $tx = new Transaction();
-//
-//// Tx inputs
-//        $input = new \BlockCypher\Api\Input();
-//        $input->addAddress("");
-//        $tx->addInput($input);
-//// Tx outputs
-//        $output = new \BlockCypher\Api\Output();
-//        $output->addAddress("");
-//        $tx->addOutput($output);
-//// Tx amount
-//        $output->setValue(30000); // Satoshis
-//
-//        $txClient = new TXClient($this->apiContext);
-//        $txSkeleton = $txClient->create($tx);
-//
-//        dd($txSkeleton);
+        $signatures = array_map(function($e) use ($bitcoinECDSA){
+            $hash = $bitcoinECDSA->signHash($e);
+            if($bitcoinECDSA->checkDerSignature('0253b7ab59e90b06f8afffcd203614a2767e88802167e907cc9f7977ea22ae459a', $e, $hash)){
+                return $hash;
+            }else{
+                return 'ERROR:'.$hash;
+            }
+        },$new['tosign']);
+
+        dd($signatures);
+
+        $new['signatures'] = $signatures;
+        $new['pubkeys'] = ['0253b7ab59e90b06f8afffcd203614a2767e88802167e907cc9f7977ea22ae459a'];
+        $send = Curl::to('https://api.blockcypher.com/v1/btc/main/txs/send?token=' . $this->token)
+            ->withData($new)
+            ->asJson(true)
+            ->post();
+        dd($send);
+//        curl -d '{"tx": {...}, "tosign": [ "32b5ea64c253b6b466366647458cfd60de9cd29d7dc542293aa0b8b7300cd827" ], "signatures": [ "3045022100921fc36b911094280f07d8504a80fbab9b823a25f102e2bc69b14bcd369dfc7902200d07067d47f040e724b556e5bc3061af132d5a47bd96e901429d53c41e0f8cca" ], "pubkeys": [ "02152e2bb5b273561ece7bbe8b1df51a4c44f5ab0bc940c105045e2cc77e618044" ] }' https://api.blockcypher.com/v1/bcy/test/txs/send?token=YOURTOKEN
+//          ./signer 32b5ea64c253b6b466366647458cfd60de9cd29d7dc542293aa0b8b7300cd827 $PRIVATEKEY
+
+//        3045022100921fc36b911094280f07d8504a80fbab9b823a25f102e2bc69b14bcd369dfc7902200d07067d47f040e724b556e5bc3061af132d5a47bd96e901429d53c41e0f8cca
     }
+
 }
