@@ -7,8 +7,9 @@
     "require": {
         "php": ">=5.6.4",
         "bacon/bacon-qr-code": "^1.0",
-        "blockcypher/php-client": "*",
+        "blockcypher/php-client": "^1.5.0",
         "doctrine/dbal": "^2.6",
+        "ixudra/curl": "^6.12",
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0",
         "simplesoftwareio/simple-qrcode": "~1"
@@ -28,6 +29,7 @@
         }
     },
     "autoload-dev": {
+
         "psr-4": {
             "Tests\\": "tests/"
         }

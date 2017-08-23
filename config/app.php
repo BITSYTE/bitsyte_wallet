@@ -179,6 +179,7 @@ return [
 
         //Custom
         SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
+        Ixudra\Curl\CurlServiceProvider::class,
 
     ],
 
@@ -230,7 +231,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         //Custom
-        'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class
+        'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
+        'Curl' => Ixudra\Curl\Facades\Curl::class,
 
     ],
 
