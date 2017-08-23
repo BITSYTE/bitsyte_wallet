@@ -28,16 +28,16 @@ class TransactionsController extends Controller
     public function create()
     {
         //https://api.blockcypher.com/v1/bcy/test/txs/new    14iXYMe2rRgYtWsAkviJ4zsgj2oVXrN2up
-        $response = Curl::to('https://api.blockcypher.com/v1/btc/main/txs/new')
+        $response = Curl::to('https://api.blockcypher.com/v1/btc/main/txs/new?token=' . $this->token)
             ->withData([
                 'inputs' => [
                     [
-                        'addresses' => ['12MbApk7JwJWjWyozznH3Qc6uSSQHseAZ9']
+                        'addresses' => ['17eP2qnH38rvRFrM4Hs7PqLrAUPeAm1JAL']
                     ],
                 ],
                 'outputs' => [
                     [
-                        'addresses' => ['17eP2qnH38rvRFrM4Hs7PqLrAUPeAm1JAL'],
+                        'addresses' => ['12MbApk7JwJWjWyozznH3Qc6uSSQHseAZ9'],
                         'value' => 10000
                     ],
                 ],
