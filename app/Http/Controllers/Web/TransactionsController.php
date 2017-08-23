@@ -32,12 +32,12 @@ class TransactionsController extends Controller
             ->withData([
                 'inputs' => [
                     [
-                        'addresses' => ['17eP2qnH38rvRFrM4Hs7PqLrAUPeAm1JAL']
+                        'addresses' => ['12MbApk7JwJWjWyozznH3Qc6uSSQHseAZ9']
                     ],
                 ],
                 'outputs' => [
                     [
-                        'addresses' => ['12MbApk7JwJWjWyozznH3Qc6uSSQHseAZ9'],
+                        'addresses' => ['17eP2qnH38rvRFrM4Hs7PqLrAUPeAm1JAL'],
                         'value' => 10000
                     ],
                 ],
