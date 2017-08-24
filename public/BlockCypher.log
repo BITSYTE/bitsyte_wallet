@@ -16,3 +16,243 @@
 
 [23-08-2017 05:01:57] BlockCypher\Validation\ModelAccessorValidator: DEBUG	: Missing Accessor: BlockCypher\Api\TX:setBlockIndex. You might be using older version of SDK. If not, create an issue at https://github.com/blockcypher/php-client/issues
 [23-08-2017 05:01:57] BlockCypher\Validation\ModelAccessorValidator: DEBUG	: Missing Accessor: BlockCypher\Api\TX:setBlockIndex. You might be using older version of SDK. If not, create an issue at https://github.com/blockcypher/php-client/issues
+[24-08-2017 01:48:58] BlockCypher\Core\BlockCypherHttpConnection: INFO	: POST https://api.blockcypher.com/v1/btc/main/txs/new?token=e6dc11f4817741b4a1092e9cca8504ed
+[24-08-2017 01:48:59] BlockCypher\Core\BlockCypherHttpConnection: DEBUG	: Request Headers 	: POST /v1/btc/main/txs/new?token=e6dc11f4817741b4a1092e9cca8504ed HTTP/1.1, Host: api.blockcypher.com, Accept: */*, Content-Type: application/json, User-Agent: BlockCypherSDK/BlockCypher-PHP-SDK 1.5.0 (lang=PHP;v=7.1.8;bit=64;os=Windows_NT_10.0;machine=AMD64;openssl=1.0.2k;curl=7.54.1), BlockCypher-Request-Id: PEDROLUNA10648150353933763373, Content-Length: 143, , 
+[24-08-2017 01:48:59] BlockCypher\Core\BlockCypherHttpConnection: DEBUG	: Request Data		: {"inputs":[{"addresses":["17eP2qnH38rvRFrM4Hs7PqLrAUPeAm1JAL"]}],"outputs":[{"addresses":["12MbApk7JwJWjWyozznH3Qc6uSSQHseAZ9"],"value":1000}]}
+--------------------------------------------------------------------------------------------------------------------------------
+
+[24-08-2017 01:48:59] BlockCypher\Core\BlockCypherHttpConnection: INFO	: Response Status 	: 201
+[24-08-2017 01:48:59] BlockCypher\Core\BlockCypherHttpConnection: DEBUG	: Response Headers	: HTTP/1.1 201 Created, Server: nginx/1.13.4, Date: Thu, 24 Aug 2017 01:49:00 GMT, Content-Type: application/json, Content-Length: 1807, Connection: keep-alive, Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Methods: GET, POST, PUT, DELETE, Access-Control-Allow-Origin: *, X-Ratelimit-Remaining: 199, , 
+[24-08-2017 01:48:59] BlockCypher\Core\BlockCypherHttpConnection: DEBUG	: Response Data 	: {
+  "tx": {
+    "block_height": -1,
+    "block_index": -1,
+    "hash": "2dc0fc86daaeedd2468be1b7ad8b51fd4500644450eb8424ac3c777676b9168b",
+    "addresses": [
+      "12MbApk7JwJWjWyozznH3Qc6uSSQHseAZ9",
+      "17eP2qnH38rvRFrM4Hs7PqLrAUPeAm1JAL"
+    ],
+    "total": 87946,
+    "fees": 187400,
+    "size": 160,
+    "preference": "high",
+    "relayed_by": "187.189.148.109",
+    "received": "2017-08-24T01:49:00.209201333Z",
+    "ver": 1,
+    "double_spend": false,
+    "vin_sz": 2,
+    "vout_sz": 2,
+    "confirmations": 0,
+    "inputs": [
+      {
+        "prev_hash": "6ac3f6a830c22b53683772460ddb4b6fd553c1cb5ea29723e5b8f27329ac41e0",
+        "output_index": 1,
+        "output_value": 30000,
+        "sequence": 4294967295,
+        "addresses": [
+          "17eP2qnH38rvRFrM4Hs7PqLrAUPeAm1JAL"
+        ],
+        "age": 481625
+      },
+      {
+        "prev_hash": "d225ce0e030e10e1082b870ca60b394b019b823e3a28af569dfea2973f7dcc28",
+        "output_index": 0,
+        "output_value": 245346,
+        "sequence": 4294967295,
+        "addresses": [
+          "17eP2qnH38rvRFrM4Hs7PqLrAUPeAm1JAL"
+        ],
+        "age": 481663
+      }
+    ],
+    "outputs": [
+      {
+        "value": 1000,
+        "script": "76a9140edcf7d9eabea7d1ca8b127155514fc0bc9ecc8b88ac",
+        "addresses": [
+          "12MbApk7JwJWjWyozznH3Qc6uSSQHseAZ9"
+        ],
+        "script_type": "pay-to-pubkey-hash"
+      },
+      {
+        "value": 86946,
+        "script": "76a91448e2895582f07585dc80893e2e43c26859cd5df188ac",
+        "addresses": [
+          "17eP2qnH38rvRFrM4Hs7PqLrAUPeAm1JAL"
+        ],
+        "script_type": "pay-to-pubkey-hash"
+      }
+    ]
+  },
+  "tosign": [
+    "60d3edfb5e4770f8b6ff530fd02f1d67d728cd4082d080345b866cc991d6cd53",
+    "78950da203d348c7bb1af7affd0aad7d13d7f2b122280fefcea29d56e54f0577"
+  ]
+}
+
+================================================================================================================================
+
+[24-08-2017 01:48:59] BlockCypher\Validation\ModelAccessorValidator: DEBUG	: Missing Accessor: BlockCypher\Api\TX:setBlockIndex. You might be using older version of SDK. If not, create an issue at https://github.com/blockcypher/php-client/issues
+[24-08-2017 01:48:59] BlockCypher\Validation\ModelAccessorValidator: DEBUG	: Missing Accessor: BlockCypher\Api\TX:setBlockIndex. You might be using older version of SDK. If not, create an issue at https://github.com/blockcypher/php-client/issues
+[24-08-2017 01:49:58] BlockCypher\Core\BlockCypherHttpConnection: INFO	: POST https://api.blockcypher.com/v1/btc/main/txs/new?token=e6dc11f4817741b4a1092e9cca8504ed
+[24-08-2017 01:49:58] BlockCypher\Core\BlockCypherHttpConnection: DEBUG	: Request Headers 	: POST /v1/btc/main/txs/new?token=e6dc11f4817741b4a1092e9cca8504ed HTTP/1.1, Host: api.blockcypher.com, Accept: */*, Content-Type: application/json, User-Agent: BlockCypherSDK/BlockCypher-PHP-SDK 1.5.0 (lang=PHP;v=7.1.8;bit=64;os=Windows_NT_10.0;machine=AMD64;openssl=1.0.2k;curl=7.54.1), BlockCypher-Request-Id: PEDROLUNA10648150353939749627, Content-Length: 143, , 
+[24-08-2017 01:49:58] BlockCypher\Core\BlockCypherHttpConnection: DEBUG	: Request Data		: {"inputs":[{"addresses":["17eP2qnH38rvRFrM4Hs7PqLrAUPeAm1JAL"]}],"outputs":[{"addresses":["12MbApk7JwJWjWyozznH3Qc6uSSQHseAZ9"],"value":1000}]}
+--------------------------------------------------------------------------------------------------------------------------------
+
+[24-08-2017 01:49:58] BlockCypher\Core\BlockCypherHttpConnection: INFO	: Response Status 	: 201
+[24-08-2017 01:49:58] BlockCypher\Core\BlockCypherHttpConnection: DEBUG	: Response Headers	: HTTP/1.1 201 Created, Server: nginx/1.11.10, Date: Thu, 24 Aug 2017 01:49:59 GMT, Content-Type: application/json, Content-Length: 1879, Connection: keep-alive, Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Methods: GET, POST, PUT, DELETE, Access-Control-Allow-Origin: *, X-Ratelimit-Remaining: 199, , 
+[24-08-2017 01:49:58] BlockCypher\Core\BlockCypherHttpConnection: DEBUG	: Response Data 	: {
+  "tx": {
+    "block_height": -1,
+    "block_index": -1,
+    "hash": "2dc0fc86daaeedd2468be1b7ad8b51fd4500644450eb8424ac3c777676b9168b",
+    "addresses": [
+      "17eP2qnH38rvRFrM4Hs7PqLrAUPeAm1JAL",
+      "12MbApk7JwJWjWyozznH3Qc6uSSQHseAZ9"
+    ],
+    "total": 87946,
+    "fees": 187400,
+    "size": 160,
+    "preference": "high",
+    "relayed_by": "187.189.148.109",
+    "received": "2017-08-24T01:49:59.589606591Z",
+    "ver": 1,
+    "lock_time": 0,
+    "double_spend": false,
+    "vin_sz": 2,
+    "vout_sz": 2,
+    "confirmations": 0,
+    "inputs": [
+      {
+        "prev_hash": "6ac3f6a830c22b53683772460ddb4b6fd553c1cb5ea29723e5b8f27329ac41e0",
+        "output_index": 1,
+        "script": "",
+        "output_value": 30000,
+        "sequence": 4294967295,
+        "addresses": [
+          "17eP2qnH38rvRFrM4Hs7PqLrAUPeAm1JAL"
+        ],
+        "script_type": ""
+      },
+      {
+        "prev_hash": "d225ce0e030e10e1082b870ca60b394b019b823e3a28af569dfea2973f7dcc28",
+        "output_index": 0,
+        "script": "",
+        "output_value": 245346,
+        "sequence": 4294967295,
+        "addresses": [
+          "17eP2qnH38rvRFrM4Hs7PqLrAUPeAm1JAL"
+        ],
+        "script_type": ""
+      }
+    ],
+    "outputs": [
+      {
+        "value": 1000,
+        "script": "76a9140edcf7d9eabea7d1ca8b127155514fc0bc9ecc8b88ac",
+        "addresses": [
+          "12MbApk7JwJWjWyozznH3Qc6uSSQHseAZ9"
+        ],
+        "script_type": "pay-to-pubkey-hash"
+      },
+      {
+        "value": 86946,
+        "script": "76a91448e2895582f07585dc80893e2e43c26859cd5df188ac",
+        "addresses": [
+          "17eP2qnH38rvRFrM4Hs7PqLrAUPeAm1JAL"
+        ],
+        "script_type": "pay-to-pubkey-hash"
+      }
+    ]
+  },
+  "tosign": [
+    "60d3edfb5e4770f8b6ff530fd02f1d67d728cd4082d080345b866cc991d6cd53",
+    "78950da203d348c7bb1af7affd0aad7d13d7f2b122280fefcea29d56e54f0577"
+  ]
+}
+
+================================================================================================================================
+
+[24-08-2017 01:49:58] BlockCypher\Validation\ModelAccessorValidator: DEBUG	: Missing Accessor: BlockCypher\Api\TX:setBlockIndex. You might be using older version of SDK. If not, create an issue at https://github.com/blockcypher/php-client/issues
+[24-08-2017 01:49:58] BlockCypher\Validation\ModelAccessorValidator: DEBUG	: Missing Accessor: BlockCypher\Api\TX:setBlockIndex. You might be using older version of SDK. If not, create an issue at https://github.com/blockcypher/php-client/issues
+[24-08-2017 01:50:02] BlockCypher\Core\BlockCypherHttpConnection: INFO	: POST https://api.blockcypher.com/v1/btc/main/txs/send?token=e6dc11f4817741b4a1092e9cca8504ed
+[24-08-2017 01:50:02] BlockCypher\Core\BlockCypherHttpConnection: DEBUG	: Request Headers 	: POST /v1/btc/main/txs/send?token=e6dc11f4817741b4a1092e9cca8504ed HTTP/1.1, Host: api.blockcypher.com, Accept: */*, Content-Type: application/json, User-Agent: BlockCypherSDK/BlockCypher-PHP-SDK 1.5.0 (lang=PHP;v=7.1.8;bit=64;os=Windows_NT_10.0;machine=AMD64;openssl=1.0.2k;curl=7.54.1), BlockCypher-Request-Id: PEDROLUNA10648150353939749627, Content-Length: 1814, Expect: 100-continue, , 
+[24-08-2017 01:50:02] BlockCypher\Core\BlockCypherHttpConnection: DEBUG	: Request Data		: {"tx":{"block_height":-1,"block_index":-1,"hash":"2dc0fc86daaeedd2468be1b7ad8b51fd4500644450eb8424ac3c777676b9168b","addresses":["17eP2qnH38rvRFrM4Hs7PqLrAUPeAm1JAL","12MbApk7JwJWjWyozznH3Qc6uSSQHseAZ9"],"total":87946,"fees":187400,"size":160,"preference":"high","relayed_by":"187.189.148.109","received":"2017-08-24T01:49:59.589606591Z","ver":1,"lock_time":0,"double_spend":false,"vin_sz":2,"vout_sz":2,"confirmations":0,"inputs":[{"prev_hash":"6ac3f6a830c22b53683772460ddb4b6fd553c1cb5ea29723e5b8f27329ac41e0","output_index":1,"script":"","output_value":30000,"sequence":4294967295,"addresses":["17eP2qnH38rvRFrM4Hs7PqLrAUPeAm1JAL"],"script_type":""},{"prev_hash":"d225ce0e030e10e1082b870ca60b394b019b823e3a28af569dfea2973f7dcc28","output_index":0,"script":"","output_value":245346,"sequence":4294967295,"addresses":["17eP2qnH38rvRFrM4Hs7PqLrAUPeAm1JAL"],"script_type":""}],"outputs":[{"value":1000,"script":"76a9140edcf7d9eabea7d1ca8b127155514fc0bc9ecc8b88ac","addresses":["12MbApk7JwJWjWyozznH3Qc6uSSQHseAZ9"],"script_type":"pay-to-pubkey-hash"},{"value":86946,"script":"76a91448e2895582f07585dc80893e2e43c26859cd5df188ac","addresses":["17eP2qnH38rvRFrM4Hs7PqLrAUPeAm1JAL"],"script_type":"pay-to-pubkey-hash"}]},"tosign":["60d3edfb5e4770f8b6ff530fd02f1d67d728cd4082d080345b866cc991d6cd53","78950da203d348c7bb1af7affd0aad7d13d7f2b122280fefcea29d56e54f0577"],"signatures":["304402203fe40c7012d764813b123a47409ba34726b6e6587126278ff532fb6c3dbe08b10220676b5aa24bcfecc90f028c9e33398fe1b971324d8689166a890b15f168916335","3045022100b4629a1d966643735b278a23691d727bdfbeed2d166044dd579d923aafa4a97702207b353978de33668ad7f8b8b11fd63ba6e3d9ca4db8006664f6a4d3c084c85c57"],"pubkeys":["0253b7ab59e90b06f8afffcd203614a2767e88802167e907cc9f7977ea22ae459a","0253b7ab59e90b06f8afffcd203614a2767e88802167e907cc9f7977ea22ae459a"]}
+--------------------------------------------------------------------------------------------------------------------------------
+
+[24-08-2017 01:50:02] BlockCypher\Core\BlockCypherHttpConnection: INFO	: Response Status 	: 201
+[24-08-2017 01:50:02] BlockCypher\Core\BlockCypherHttpConnection: DEBUG	: Response Headers	: HTTP/1.1 100 Continue, , HTTP/1.1 201 Created, Server: nginx/1.11.10, Date: Thu, 24 Aug 2017 01:50:04 GMT, Content-Type: application/json, Transfer-Encoding: chunked, Connection: keep-alive, Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Methods: GET, POST, PUT, DELETE, Access-Control-Allow-Origin: *, X-Ratelimit-Remaining: 198, , 
+[24-08-2017 01:50:02] BlockCypher\Core\BlockCypherHttpConnection: DEBUG	: Response Data 	: {
+  "tx": {
+    "block_height": -1,
+    "block_index": -1,
+    "hash": "49d27fa9ae3fba90f3339c09f4e9ed7ff9b61ce6efb59441d09b1e6c0ad536a0",
+    "addresses": [
+      "17eP2qnH38rvRFrM4Hs7PqLrAUPeAm1JAL",
+      "12MbApk7JwJWjWyozznH3Qc6uSSQHseAZ9"
+    ],
+    "total": 87946,
+    "fees": 187400,
+    "size": 373,
+    "preference": "high",
+    "relayed_by": "187.189.148.109",
+    "received": "2017-08-24T01:50:04.037291976Z",
+    "ver": 1,
+    "lock_time": 0,
+    "double_spend": false,
+    "vin_sz": 2,
+    "vout_sz": 2,
+    "confirmations": 0,
+    "inputs": [
+      {
+        "prev_hash": "6ac3f6a830c22b53683772460ddb4b6fd553c1cb5ea29723e5b8f27329ac41e0",
+        "output_index": 1,
+        "script": "47304402203fe40c7012d764813b123a47409ba34726b6e6587126278ff532fb6c3dbe08b10220676b5aa24bcfecc90f028c9e33398fe1b971324d8689166a890b15f16891633501210253b7ab59e90b06f8afffcd203614a2767e88802167e907cc9f7977ea22ae459a",
+        "output_value": 30000,
+        "sequence": 4294967295,
+        "addresses": [
+          "17eP2qnH38rvRFrM4Hs7PqLrAUPeAm1JAL"
+        ],
+        "script_type": "pay-to-pubkey-hash"
+      },
+      {
+        "prev_hash": "d225ce0e030e10e1082b870ca60b394b019b823e3a28af569dfea2973f7dcc28",
+        "output_index": 0,
+        "script": "483045022100b4629a1d966643735b278a23691d727bdfbeed2d166044dd579d923aafa4a97702207b353978de33668ad7f8b8b11fd63ba6e3d9ca4db8006664f6a4d3c084c85c5701210253b7ab59e90b06f8afffcd203614a2767e88802167e907cc9f7977ea22ae459a",
+        "output_value": 245346,
+        "sequence": 4294967295,
+        "addresses": [
+          "17eP2qnH38rvRFrM4Hs7PqLrAUPeAm1JAL"
+        ],
+        "script_type": "pay-to-pubkey-hash"
+      }
+    ],
+    "outputs": [
+      {
+        "value": 1000,
+        "script": "76a9140edcf7d9eabea7d1ca8b127155514fc0bc9ecc8b88ac",
+        "addresses": [
+          "12MbApk7JwJWjWyozznH3Qc6uSSQHseAZ9"
+        ],
+        "script_type": "pay-to-pubkey-hash"
+      },
+      {
+        "value": 86946,
+        "script": "76a91448e2895582f07585dc80893e2e43c26859cd5df188ac",
+        "addresses": [
+          "17eP2qnH38rvRFrM4Hs7PqLrAUPeAm1JAL"
+        ],
+        "script_type": "pay-to-pubkey-hash"
+      }
+    ]
+  },
+  "tosign": [
+    "",
+    ""
+  ]
+}
+
+================================================================================================================================
+
+[24-08-2017 01:50:02] BlockCypher\Validation\ModelAccessorValidator: DEBUG	: Missing Accessor: BlockCypher\Api\TX:setBlockIndex. You might be using older version of SDK. If not, create an issue at https://github.com/blockcypher/php-client/issues
+[24-08-2017 01:50:02] BlockCypher\Validation\ModelAccessorValidator: DEBUG	: Missing Accessor: BlockCypher\Api\TX:setBlockIndex. You might be using older version of SDK. If not, create an issue at https://github.com/blockcypher/php-client/issues

@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers\Web;
 
+use BlockCypher\Api\TX;
+use BlockCypher\Api\TXInput;
+use BlockCypher\Api\TXOutput;
 use BlockCypher\Auth\SimpleTokenCredential;
+use BlockCypher\Client\TXClient;
 use BlockCypher\Crypto\Signer;
 use BlockCypher\Rest\ApiContext;
 use Illuminate\Http\Request;
@@ -72,6 +76,35 @@ class TransactionsController extends Controller
 //          ./signer 32b5ea64c253b6b466366647458cfd60de9cd29d7dc542293aa0b8b7300cd827 $PRIVATEKEY
 
 //        3045022100921fc36b911094280f07d8504a80fbab9b823a25f102e2bc69b14bcd369dfc7902200d07067d47f040e724b556e5bc3061af132d5a47bd96e901429d53c41e0f8cca
+    }
+
+    public function create2()
+    {
+        $tx = new TX();
+
+        // Tx inputs
+        $input = new TXInput();
+        $input->addAddress("17eP2qnH38rvRFrM4Hs7PqLrAUPeAm1JAL");
+        $tx->addInput($input);
+
+        // Tx outputs
+        $output = new TXOutput();
+        $output->addAddress("12MbApk7JwJWjWyozznH3Qc6uSSQHseAZ9");
+        $tx->addOutput($output);
+
+        // Tx amount
+        $output->setValue(1000); // Satoshis
+
+        $txClient = new TXClient($this->apiContext);
+        $txSkeleton = $txClient->create($tx);
+//        dd($txSkeleton);
+
+        $privateKeys = array("fadc3effee3b699881cc2c123c8df335f393460142d9fae5dd5c507b840b61f0");
+        $txSkeleton = $txClient->sign($txSkeleton, $privateKeys);
+
+        $txSkeleton = $txClient->send($txSkeleton);
+
+        dd($txSkeleton);
     }
 
 }

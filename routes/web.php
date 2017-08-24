@@ -29,5 +29,6 @@ Route::group(['namespace' => 'Web', 'prefix' => 'test'], function () {
     //Transaction
     Route::group(['prefix' => 'transactions', 'as' => 'transactions.'], function () {
         Route::get('/create', 'TransactionsController@create')->name('create');
+        Route::get('/create2', 'TransactionsController@create2')->name('create2');
     });
 });

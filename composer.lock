@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "567e4bcefd48910a5767facb99b24aa8",
+    "content-hash": "ecce08a85664e430cb45b7e117f78145",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -97,38 +97,39 @@
         },
         {
             "name": "bitwasp/bitcoin",
-            "version": "v0.0.7",
+            "version": "v0.0.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Bit-Wasp/bitcoin-php.git",
-                "reference": "7316b7bc5fc204d972e5df3b2485366ee4cd1a18"
+                "reference": "38e7c4e6ea48b880286e8192feb39494b141669c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Bit-Wasp/bitcoin-php/zipball/7316b7bc5fc204d972e5df3b2485366ee4cd1a18",
-                "reference": "7316b7bc5fc204d972e5df3b2485366ee4cd1a18",
+                "url": "https://api.github.com/repos/Bit-Wasp/bitcoin-php/zipball/38e7c4e6ea48b880286e8192feb39494b141669c",
+                "reference": "38e7c4e6ea48b880286e8192feb39494b141669c",
                 "shasum": ""
             },
             "require": {
-                "bitwasp/buffertools": "~0.1",
-                "bitwasp/stratum": "~0.1",
-                "doctrine/cache": "~1.4",
+                "bitwasp/buffertools": "v0.1.5",
+                "bitwasp/stratum": "v0.1.0",
+                "doctrine/cache": "v1.4",
                 "ext-gmp": "*",
                 "ext-json": "*",
                 "ext-mcrypt": "*",
                 "ext-openssl": "*",
-                "fguillot/json-rpc": "0.0.1",
-                "lastguest/murmurhash": "~1.0",
-                "mdanter/ecc": "~0.3",
+                "fguillot/json-rpc": "v0.0.1",
+                "lastguest/murmurhash": "v1.0",
+                "mdanter/ecc": "v0.3.0",
                 "php": ">=5.4.0",
-                "pleonasm/merkle-tree": "1.0.0",
-                "react/react": "~0.4",
-                "react/socket-client": "~0.4",
-                "rgooding/protobuf-php": "~0.0",
-                "rych/hash_pbkdf2-compat": "~1.0"
+                "pleonasm/merkle-tree": "v1.0.0",
+                "react/react": "v0.4.0",
+                "react/socket-client": "^0.4.0",
+                "rgooding/protobuf-php": "v0.0.1",
+                "rych/hash_pbkdf2-compat": "v1.0.0"
             },
             "require-dev": {
                 "bitwasp/testing-php": "~0.0",
+                "phpunit/phpunit": "4.0",
                 "symfony/yaml": "~2.6"
             },
             "type": "library",
@@ -150,27 +151,28 @@
             ],
             "description": "PHP Bitcoin library with functions for transactions, signatures, serialization, Random/Deterministic ECDSA keys, blocks, RPC bindings",
             "homepage": "https://github.com/bit-wasp/bitcoin-php",
-            "time": "2015-06-30T19:18:43+00:00"
+            "time": "2016-11-11T09:09:44+00:00"
         },
         {
             "name": "bitwasp/buffertools",
-            "version": "v0.4.1",
+            "version": "v0.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Bit-Wasp/buffertools-php.git",
-                "reference": "5ac7578fc00d093075a493320bd0a01d1ae0128c"
+                "reference": "217e0228e66fd76a86af746c8c89489e88b82023"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Bit-Wasp/buffertools-php/zipball/5ac7578fc00d093075a493320bd0a01d1ae0128c",
-                "reference": "5ac7578fc00d093075a493320bd0a01d1ae0128c",
+                "url": "https://api.github.com/repos/Bit-Wasp/buffertools-php/zipball/217e0228e66fd76a86af746c8c89489e88b82023",
+                "reference": "217e0228e66fd76a86af746c8c89489e88b82023",
                 "shasum": ""
             },
             "require": {
-                "mdanter/ecc": "~0.4"
+                "mdanter/ecc": "0.3.0",
+                "php": ">=5.4.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "~5.0",
+                "phpunit/phpunit": "~4.3.1",
                 "satooshi/php-coveralls": "~0.6.1",
                 "squizlabs/php_codesniffer": "~2.0"
             },
@@ -195,7 +197,7 @@
                 }
             ],
             "description": "Toolbox for working with binary and hex data. Similar to NodeJS Buffer.",
-            "time": "2017-06-21T18:23:36+00:00"
+            "time": "2015-05-31T13:26:49+00:00"
         },
         {
             "name": "bitwasp/stratum",
@@ -390,42 +392,38 @@
         },
         {
             "name": "doctrine/cache",
-            "version": "v1.7.0",
+            "version": "v1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/cache.git",
-                "reference": "53d9518ffeb019c51d542ff60cb578f076d3ff16"
+                "reference": "2346085d2b027b233ae1d5de59b07440b9f288c8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/cache/zipball/53d9518ffeb019c51d542ff60cb578f076d3ff16",
-                "reference": "53d9518ffeb019c51d542ff60cb578f076d3ff16",
+                "url": "https://api.github.com/repos/doctrine/cache/zipball/2346085d2b027b233ae1d5de59b07440b9f288c8",
+                "reference": "2346085d2b027b233ae1d5de59b07440b9f288c8",
                 "shasum": ""
             },
             "require": {
-                "php": "~7.1"
+                "php": ">=5.3.2"
             },
             "conflict": {
                 "doctrine/common": ">2.2,<2.4"
             },
             "require-dev": {
-                "alcaeus/mongo-php-adapter": "^1.1",
-                "mongodb/mongodb": "^1.1",
-                "phpunit/phpunit": "^5.7",
-                "predis/predis": "~1.0"
-            },
-            "suggest": {
-                "alcaeus/mongo-php-adapter": "Required to use legacy MongoDB driver"
+                "phpunit/phpunit": ">=3.7",
+                "predis/predis": "~0.8",
+                "satooshi/php-coveralls": "~0.6"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.7.x-dev"
+                    "dev-master": "1.4.x-dev"
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Doctrine\\Common\\Cache\\": "lib/Doctrine/Common/Cache"
+                "psr-0": {
+                    "Doctrine\\Common\\Cache\\": "lib/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -460,7 +458,7 @@
                 "cache",
                 "caching"
             ],
-            "time": "2017-07-22T13:00:15+00:00"
+            "time": "2015-01-15T20:38:55+00:00"
         },
         {
             "name": "doctrine/collections",
@@ -888,33 +886,29 @@
         },
         {
             "name": "fgrosse/phpasn1",
-            "version": "1.5.2",
+            "version": "1.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fgrosse/PHPASN1.git",
-                "reference": "a18b162eca6aa70f8f15615f4ac8c852dffbc7dd"
+                "reference": "ee6d1abd18f8bcbaf0b55563ba87e5ed16cd0c98"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fgrosse/PHPASN1/zipball/a18b162eca6aa70f8f15615f4ac8c852dffbc7dd",
-                "reference": "a18b162eca6aa70f8f15615f4ac8c852dffbc7dd",
+                "url": "https://api.github.com/repos/fgrosse/PHPASN1/zipball/ee6d1abd18f8bcbaf0b55563ba87e5ed16cd0c98",
+                "reference": "ee6d1abd18f8bcbaf0b55563ba87e5ed16cd0c98",
                 "shasum": ""
             },
             "require": {
                 "ext-gmp": "*",
-                "php": ">=5.6.0"
+                "php": ">=5.3.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.5",
-                "satooshi/php-coveralls": "dev-master"
-            },
-            "suggest": {
-                "php-curl": "For loading OID information from the web if they have not bee defined statically"
+                "phpunit/phpunit": "~4.5"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.5.x-dev"
+                    "dev-master": "1.3.x-dev"
                 }
             },
             "autoload": {
@@ -940,20 +934,7 @@
             ],
             "description": "A PHP Framework that allows you to encode and decode arbitrary ASN.1 structures using the ITU-T X.690 Encoding Rules.",
             "homepage": "https://github.com/FGrosse/PHPASN1",
-            "keywords": [
-                "DER",
-                "asn.1",
-                "asn1",
-                "ber",
-                "binary",
-                "decoding",
-                "encoding",
-                "x.509",
-                "x.690",
-                "x509",
-                "x690"
-            ],
-            "time": "2016-10-29T15:46:46+00:00"
+            "time": "2015-07-15T21:26:40+00:00"
         },
         {
             "name": "fguillot/json-rpc",
@@ -993,82 +974,62 @@
             "time": "2014-11-22T20:32:14+00:00"
         },
         {
-            "name": "guzzlehttp/psr7",
-            "version": "1.4.2",
+            "name": "guzzle/parser",
+            "version": "v3.9.2",
+            "target-dir": "Guzzle/Parser",
             "source": {
                 "type": "git",
-                "url": "https://github.com/guzzle/psr7.git",
-                "reference": "f5b8a8512e2b58b0071a7280e39f14f72e05d87c"
+                "url": "https://github.com/Guzzle3/parser.git",
+                "reference": "6874d171318a8e93eb6d224cf85e4678490b625c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/f5b8a8512e2b58b0071a7280e39f14f72e05d87c",
-                "reference": "f5b8a8512e2b58b0071a7280e39f14f72e05d87c",
+                "url": "https://api.github.com/repos/Guzzle3/parser/zipball/6874d171318a8e93eb6d224cf85e4678490b625c",
+                "reference": "6874d171318a8e93eb6d224cf85e4678490b625c",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.4.0",
-                "psr/http-message": "~1.0"
-            },
-            "provide": {
-                "psr/http-message-implementation": "1.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~4.0"
+                "php": ">=5.3.2"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.4-dev"
+                    "dev-master": "3.7-dev"
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "GuzzleHttp\\Psr7\\": "src/"
-                },
-                "files": [
-                    "src/functions_include.php"
-                ]
+                "psr-0": {
+                    "Guzzle\\Parser": ""
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
-            "authors": [
-                {
-                    "name": "Michael Dowling",
-                    "email": "mtdowling@gmail.com",
-                    "homepage": "https://github.com/mtdowling"
-                },
-                {
-                    "name": "Tobias Schultze",
-                    "homepage": "https://github.com/Tobion"
-                }
-            ],
-            "description": "PSR-7 message implementation that also provides common utility methods",
+            "description": "Interchangeable parsers used by Guzzle",
+            "homepage": "http://guzzlephp.org/",
             "keywords": [
+                "URI Template",
+                "cookie",
                 "http",
                 "message",
-                "request",
-                "response",
-                "stream",
-                "uri",
                 "url"
             ],
-            "time": "2017-03-20T17:10:46+00:00"
+            "abandoned": "guzzle/guzzle",
+            "time": "2014-02-05T18:29:46+00:00"
         },
         {
             "name": "ixudra/curl",
-            "version": "6.12.1",
+            "version": "6.12.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ixudra/curl.git",
-                "reference": "adedf5c9dd7e8e31061cf4ac756f20cec62966cf"
+                "reference": "1a40f8abc368164a3751f89692b818fca937a63e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ixudra/curl/zipball/adedf5c9dd7e8e31061cf4ac756f20cec62966cf",
-                "reference": "adedf5c9dd7e8e31061cf4ac756f20cec62966cf",
+                "url": "https://api.github.com/repos/ixudra/curl/zipball/1a40f8abc368164a3751f89692b818fca937a63e",
+                "reference": "1a40f8abc368164a3751f89692b818fca937a63e",
                 "shasum": ""
             },
             "require": {
@@ -1098,7 +1059,7 @@
                 "curl",
                 "laravel"
             ],
-            "time": "2017-08-07T01:37:48+00:00"
+            "time": "2017-08-23T09:57:24+00:00"
         },
         {
             "name": "jakub-onderka/php-console-color",
@@ -1189,16 +1150,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.4.33",
+            "version": "v5.4.34",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "e53a81a2bf406f501cdf818ad949f8d6c8dabfc0"
+                "reference": "eaa09c998b315af9fbec04ad29ecfbfd2aa88aeb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/e53a81a2bf406f501cdf818ad949f8d6c8dabfc0",
-                "reference": "e53a81a2bf406f501cdf818ad949f8d6c8dabfc0",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/eaa09c998b315af9fbec04ad29ecfbfd2aa88aeb",
+                "reference": "eaa09c998b315af9fbec04ad29ecfbfd2aa88aeb",
                 "shasum": ""
             },
             "require": {
@@ -1314,7 +1275,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2017-08-14T20:17:41+00:00"
+            "time": "2017-08-23T20:31:28+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -1381,16 +1342,16 @@
         },
         {
             "name": "lastguest/murmurhash",
-            "version": "1.3.0",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/lastguest/murmurhash-php.git",
-                "reference": "8eb06483456bc98f5adb7707d981a8ef6a065fa2"
+                "reference": "57c5b213844c481f5874281443e78210109e2dba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/lastguest/murmurhash-php/zipball/8eb06483456bc98f5adb7707d981a8ef6a065fa2",
-                "reference": "8eb06483456bc98f5adb7707d981a8ef6a065fa2",
+                "url": "https://api.github.com/repos/lastguest/murmurhash-php/zipball/57c5b213844c481f5874281443e78210109e2dba",
+                "reference": "57c5b213844c481f5874281443e78210109e2dba",
                 "shasum": ""
             },
             "require": {
@@ -1420,7 +1381,7 @@
                 "hashing",
                 "murmur"
             ],
-            "time": "2016-05-16T23:22:58+00:00"
+            "time": "2015-04-30T22:24:10+00:00"
         },
         {
             "name": "league/flysystem",
@@ -1507,28 +1468,29 @@
         },
         {
             "name": "mdanter/ecc",
-            "version": "v0.4.2",
+            "version": "dev-bugfix",
             "source": {
                 "type": "git",
-                "url": "https://github.com/phpecc/phpecc.git",
-                "reference": "fdd1fa9be8184c9f319433437cb1d9f9d4294164"
+                "url": "https://github.com/rsbombard/phpecc.git",
+                "reference": "b80e0315ce61b9b8f8bd98940dee3edab41caccc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpecc/phpecc/zipball/fdd1fa9be8184c9f319433437cb1d9f9d4294164",
-                "reference": "fdd1fa9be8184c9f319433437cb1d9f9d4294164",
+                "url": "https://api.github.com/repos/rsbombard/phpecc/zipball/b80e0315ce61b9b8f8bd98940dee3edab41caccc",
+                "reference": "b80e0315ce61b9b8f8bd98940dee3edab41caccc",
                 "shasum": ""
             },
             "require": {
                 "ext-gmp": "*",
-                "fgrosse/phpasn1": "~1.5",
-                "paragonie/random_compat": "^1|^2",
-                "php": ">=5.6.0"
+                "ext-mcrypt": "*",
+                "fgrosse/phpasn1": "~1.3.1",
+                "php": ">=5.4.0",
+                "symfony/console": "~3.3.6"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.1|~5.0",
+                "phpunit/phpunit": "~4.1",
                 "squizlabs/php_codesniffer": "~2",
-                "symfony/yaml": "~2.6|~3.0"
+                "symfony/yaml": "~2.6"
             },
             "type": "library",
             "autoload": {
@@ -1536,7 +1498,11 @@
                     "Mdanter\\Ecc\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "Mdanter\\Ecc\\Tests\\": "tests/unit"
+                }
+            },
             "license": [
                 "MIT"
             ],
@@ -1551,25 +1517,20 @@
                     "email": "thibaud@aztech.io",
                     "homepage": "http://aztech.io",
                     "role": "Maintainer"
+                },
+                {
+                    "name": "Drak",
+                    "email": "drak@zikula.org",
+                    "homepage": "http://zikula.org",
+                    "role": "Maintainer"
                 }
             ],
             "description": "PHP Elliptic Curve Cryptography library",
-            "homepage": "https://github.com/phpecc/phpecc",
-            "keywords": [
-                "Diffie",
-                "ECDSA",
-                "Hellman",
-                "curve",
-                "ecdh",
-                "elliptic",
-                "nistp192",
-                "nistp224",
-                "nistp256",
-                "nistp521",
-                "phpecc",
-                "secp256k1"
-            ],
-            "time": "2017-01-04T12:13:24+00:00"
+            "homepage": "https://github.com/mdanter/phpecc",
+            "support": {
+                "source": "https://github.com/rsbombard/phpecc/tree/bugfix"
+            },
+            "time": "2014-07-07T12:44:15+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -1889,56 +1850,6 @@
             "time": "2013-05-22T20:46:20+00:00"
         },
         {
-            "name": "psr/http-message",
-            "version": "1.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/php-fig/http-message.git",
-                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/http-message/zipball/f6561bf28d520154e4b0ec72be95418abe6d9363",
-                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Psr\\Http\\Message\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "PHP-FIG",
-                    "homepage": "http://www.php-fig.org/"
-                }
-            ],
-            "description": "Common interface for HTTP messages",
-            "homepage": "https://github.com/php-fig/http-message",
-            "keywords": [
-                "http",
-                "http-message",
-                "psr",
-                "psr-7",
-                "request",
-                "response"
-            ],
-            "time": "2016-08-06T14:39:51+00:00"
-        },
-        {
             "name": "psr/log",
             "version": "1.0.2",
             "source": {
@@ -2141,251 +2052,6 @@
             "time": "2017-08-04T13:39:04+00:00"
         },
         {
-            "name": "react/cache",
-            "version": "v0.4.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/reactphp/cache.git",
-                "reference": "558f614891341b1d817a8cdf9a358948ec49638f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/reactphp/cache/zipball/558f614891341b1d817a8cdf9a358948ec49638f",
-                "reference": "558f614891341b1d817a8cdf9a358948ec49638f",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0",
-                "react/promise": "~2.0|~1.1"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "React\\Cache\\": "src\\"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Async caching.",
-            "keywords": [
-                "cache"
-            ],
-            "time": "2016-02-25T18:17:16+00:00"
-        },
-        {
-            "name": "react/child-process",
-            "version": "v0.4.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/reactphp/child-process.git",
-                "reference": "b81d06daaafb5d7d592b6f7f8b1b7905cdef9ac6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/reactphp/child-process/zipball/b81d06daaafb5d7d592b6f7f8b1b7905cdef9ac6",
-                "reference": "b81d06daaafb5d7d592b6f7f8b1b7905cdef9ac6",
-                "shasum": ""
-            },
-            "require": {
-                "evenement/evenement": "^2.0 || ^1.0",
-                "php": ">=5.3.0",
-                "react/event-loop": "^0.4 || ^0.3",
-                "react/stream": "^0.5 || ^0.4.4"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^5.0 || ^4.8.10",
-                "sebastian/environment": "~1.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "React\\ChildProcess\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Library for executing child processes.",
-            "keywords": [
-                "process"
-            ],
-            "time": "2017-03-14T13:23:20+00:00"
-        },
-        {
-            "name": "react/dns",
-            "version": "v0.4.10",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/reactphp/dns.git",
-                "reference": "457fbc43c04e9612573a24245d950c091c0fc40e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/reactphp/dns/zipball/457fbc43c04e9612573a24245d950c091c0fc40e",
-                "reference": "457fbc43c04e9612573a24245d950c091c0fc40e",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0",
-                "react/cache": "~0.4.0|~0.3.0",
-                "react/event-loop": "^1.0 || ^0.5 || ^0.4 || ^0.3.5",
-                "react/promise": "^2.1 || ^1.2.1",
-                "react/promise-timer": "^1.2",
-                "react/socket": "^1.0 || ^0.8 || ^0.7 || ^0.6 || ^0.5 || ^0.4.4",
-                "react/stream": "^1.0 || ^0.7 || ^0.6 || ^0.5 || ^0.4.5"
-            },
-            "require-dev": {
-                "clue/block-react": "^1.2",
-                "phpunit/phpunit": "^5.0 || ^4.8.10"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "React\\Dns\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Async DNS resolver for ReactPHP",
-            "keywords": [
-                "async",
-                "dns",
-                "dns-resolver",
-                "reactphp"
-            ],
-            "time": "2017-08-10T12:31:41+00:00"
-        },
-        {
-            "name": "react/event-loop",
-            "version": "v0.4.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/reactphp/event-loop.git",
-                "reference": "8bde03488ee897dc6bb3d91e4e17c353f9c5252f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/reactphp/event-loop/zipball/8bde03488ee897dc6bb3d91e4e17c353f9c5252f",
-                "reference": "8bde03488ee897dc6bb3d91e4e17c353f9c5252f",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.4.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~4.8"
-            },
-            "suggest": {
-                "ext-event": "~1.0",
-                "ext-libev": "*",
-                "ext-libevent": ">=0.1.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "React\\EventLoop\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Event loop abstraction layer that libraries can use for evented I/O.",
-            "keywords": [
-                "asynchronous",
-                "event-loop"
-            ],
-            "time": "2017-04-27T10:56:23+00:00"
-        },
-        {
-            "name": "react/http",
-            "version": "v0.4.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/reactphp/http.git",
-                "reference": "aac319bd789cbc7b478d42cde2d03596e97e3222"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/reactphp/http/zipball/aac319bd789cbc7b478d42cde2d03596e97e3222",
-                "reference": "aac319bd789cbc7b478d42cde2d03596e97e3222",
-                "shasum": ""
-            },
-            "require": {
-                "evenement/evenement": "^2.0 || ^1.0",
-                "php": ">=5.3.0",
-                "react/socket": "^0.4",
-                "react/stream": "^0.4.4",
-                "ringcentral/psr7": "^1.2"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^4.8.10||^5.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "React\\Http\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Library for building an evented http server.",
-            "keywords": [
-                "http"
-            ],
-            "time": "2017-02-13T14:12:50+00:00"
-        },
-        {
-            "name": "react/http-client",
-            "version": "v0.4.17",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/reactphp/http-client.git",
-                "reference": "75ee8a113f156834aaabfe0055e8db531cb4892c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/reactphp/http-client/zipball/75ee8a113f156834aaabfe0055e8db531cb4892c",
-                "reference": "75ee8a113f156834aaabfe0055e8db531cb4892c",
-                "shasum": ""
-            },
-            "require": {
-                "evenement/evenement": "~2.0",
-                "guzzlehttp/psr7": "^1.0",
-                "php": ">=5.4.0",
-                "react/dns": "0.4.*",
-                "react/event-loop": "0.4.*",
-                "react/promise": "~2.2",
-                "react/socket-client": "^0.5 || ^0.4 || ^0.3",
-                "react/stream": "0.4.*"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^5.0 || ^4.8.10"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "React\\HttpClient\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Asynchronous HTTP client library.",
-            "keywords": [
-                "http"
-            ],
-            "time": "2017-03-20T09:55:48+00:00"
-        },
-        {
             "name": "react/promise",
             "version": "v2.5.1",
             "source": {
@@ -2432,87 +2098,37 @@
             "time": "2017-03-25T12:08:31+00:00"
         },
         {
-            "name": "react/promise-timer",
-            "version": "v1.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/reactphp/promise-timer.git",
-                "reference": "3bc527fbd1201a193ab41c19b9a770d71a3514af"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/reactphp/promise-timer/zipball/3bc527fbd1201a193ab41c19b9a770d71a3514af",
-                "reference": "3bc527fbd1201a193ab41c19b9a770d71a3514af",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3",
-                "react/event-loop": "^1.0 || ^0.5 || ^0.4 || ^0.3.5",
-                "react/promise": "~2.1|~1.2"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^5.0 || ^4.8"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "React\\Promise\\Timer\\": "src/"
-                },
-                "files": [
-                    "src/functions.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Christian Lück",
-                    "email": "christian@lueck.tv"
-                }
-            ],
-            "description": "Trivial timeout implementation for Promises",
-            "homepage": "https://github.com/react/promise-timer",
-            "keywords": [
-                "async",
-                "event-loop",
-                "promise",
-                "reactphp",
-                "timeout",
-                "timer"
-            ],
-            "time": "2017-08-08T16:30:19+00:00"
-        },
-        {
             "name": "react/react",
-            "version": "v0.4.2",
+            "version": "v0.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/reactphp/react.git",
-                "reference": "457b6b8a16a37c11278cac0870d6d2ff911c5765"
+                "reference": "3a5d12166b38d059a96c232d809332e7f3e60d9d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/reactphp/react/zipball/457b6b8a16a37c11278cac0870d6d2ff911c5765",
-                "reference": "457b6b8a16a37c11278cac0870d6d2ff911c5765",
+                "url": "https://api.github.com/repos/reactphp/react/zipball/3a5d12166b38d059a96c232d809332e7f3e60d9d",
+                "reference": "3a5d12166b38d059a96c232d809332e7f3e60d9d",
                 "shasum": ""
             },
             "require": {
+                "evenement/evenement": "~2.0",
+                "guzzle/parser": "~3.0",
                 "php": ">=5.4.0",
-                "react/cache": "0.4.*",
-                "react/child-process": "0.4.*",
-                "react/dns": "0.4.*",
-                "react/event-loop": "0.4.*",
-                "react/http": "0.4.*",
-                "react/http-client": "0.4.*",
-                "react/promise": "~2.1",
-                "react/socket": "0.4.*",
-                "react/socket-client": "0.4.*",
-                "react/stream": "0.4.*"
+                "react/promise": "~2.0"
+            },
+            "replace": {
+                "react/cache": "self.version",
+                "react/dns": "self.version",
+                "react/event-loop": "self.version",
+                "react/http": "self.version",
+                "react/http-client": "self.version",
+                "react/socket": "self.version",
+                "react/socket-client": "self.version",
+                "react/stream": "self.version"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.0"
+                "phpunit/phpunit": "3.7.*"
             },
             "suggest": {
                 "ext-event": "Allows for use of a more performant event-loop implementation.",
@@ -2522,7 +2138,12 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.5-dev"
+                    "dev-master": "0.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "React\\": "src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -2531,139 +2152,10 @@
             ],
             "description": "Nuclear Reactor written in PHP.",
             "keywords": [
-                "asynchronous",
                 "event-loop",
                 "reactor"
             ],
-            "time": "2014-12-11T02:06:55+00:00"
-        },
-        {
-            "name": "react/socket",
-            "version": "v0.4.6",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/reactphp/socket.git",
-                "reference": "cf074e53c974df52388ebd09710a9018894745d2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/reactphp/socket/zipball/cf074e53c974df52388ebd09710a9018894745d2",
-                "reference": "cf074e53c974df52388ebd09710a9018894745d2",
-                "shasum": ""
-            },
-            "require": {
-                "evenement/evenement": "~2.0|~1.0",
-                "php": ">=5.3.0",
-                "react/event-loop": "0.4.*|0.3.*",
-                "react/promise": "^2.0 || ^1.1",
-                "react/stream": "^0.4.5"
-            },
-            "require-dev": {
-                "clue/block-react": "^1.1",
-                "phpunit/phpunit": "~4.8",
-                "react/socket-client": "^0.5.1"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "React\\Socket\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Async, streaming plaintext TCP/IP and secure TLS socket server for React PHP",
-            "keywords": [
-                "Socket"
-            ],
-            "time": "2017-01-26T09:23:38+00:00"
-        },
-        {
-            "name": "react/socket-client",
-            "version": "v0.4.6",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/reactphp/socket-client.git",
-                "reference": "49e730523b73d912e56f7a41f53ed3fc083ae167"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/reactphp/socket-client/zipball/49e730523b73d912e56f7a41f53ed3fc083ae167",
-                "reference": "49e730523b73d912e56f7a41f53ed3fc083ae167",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.4.0",
-                "react/dns": "0.4.*",
-                "react/event-loop": "0.4.*",
-                "react/promise": "~2.0",
-                "react/stream": "0.4.*"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "0.4-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "React\\SocketClient\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Async connector to open TCP/IP and SSL/TLS based connections.",
-            "keywords": [
-                "Socket"
-            ],
-            "time": "2016-12-06T10:54:49+00:00"
-        },
-        {
-            "name": "react/stream",
-            "version": "v0.4.6",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/reactphp/stream.git",
-                "reference": "44dc7f51ea48624110136b535b9ba44fd7d0c1ee"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/reactphp/stream/zipball/44dc7f51ea48624110136b535b9ba44fd7d0c1ee",
-                "reference": "44dc7f51ea48624110136b535b9ba44fd7d0c1ee",
-                "shasum": ""
-            },
-            "require": {
-                "evenement/evenement": "^2.0|^1.0",
-                "php": ">=5.3.8"
-            },
-            "require-dev": {
-                "clue/stream-filter": "~1.2",
-                "react/event-loop": "^0.4|^0.3",
-                "react/promise": "^2.0|^1.0"
-            },
-            "suggest": {
-                "react/event-loop": "^0.4",
-                "react/promise": "^2.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "React\\Stream\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Basic readable and writable stream interfaces that support piping.",
-            "keywords": [
-                "pipe",
-                "stream"
-            ],
-            "time": "2017-01-25T14:44:14+00:00"
+            "time": "2014-02-03T02:33:04+00:00"
         },
         {
             "name": "rgooding/protobuf-php",
@@ -2717,83 +2209,25 @@
             "time": "2013-05-29T14:39:13+00:00"
         },
         {
-            "name": "ringcentral/psr7",
-            "version": "1.2.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ringcentral/psr7.git",
-                "reference": "2594fb47cdc659f3fcf0aa1559b7355460555303"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ringcentral/psr7/zipball/2594fb47cdc659f3fcf0aa1559b7355460555303",
-                "reference": "2594fb47cdc659f3fcf0aa1559b7355460555303",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3",
-                "psr/http-message": "~1.0"
-            },
-            "provide": {
-                "psr/http-message-implementation": "1.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~4.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "RingCentral\\Psr7\\": "src/"
-                },
-                "files": [
-                    "src/functions_include.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Michael Dowling",
-                    "email": "mtdowling@gmail.com",
-                    "homepage": "https://github.com/mtdowling"
-                }
-            ],
-            "description": "PSR-7 message implementation",
-            "keywords": [
-                "http",
-                "message",
-                "stream",
-                "uri"
-            ],
-            "time": "2016-03-25T17:36:49+00:00"
-        },
-        {
             "name": "rych/hash_pbkdf2-compat",
-            "version": "v1.0.1",
+            "version": "v1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rchouinard/hash_pbkdf2-compat.git",
-                "reference": "cc61512c5284616885449d4b8de231e087823e5c"
+                "reference": "04c6ec3c6db6049cbd4970c5c73861b66f9fe731"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rchouinard/hash_pbkdf2-compat/zipball/cc61512c5284616885449d4b8de231e087823e5c",
-                "reference": "cc61512c5284616885449d4b8de231e087823e5c",
+                "url": "https://api.github.com/repos/rchouinard/hash_pbkdf2-compat/zipball/04c6ec3c6db6049cbd4970c5c73861b66f9fe731",
+                "reference": "04c6ec3c6db6049cbd4970c5c73861b66f9fe731",
                 "shasum": ""
             },
             "require": {
                 "ext-hash": "*",
-                "php": ">=5.3.3"
+                "php": ">=5.3"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.8"
+                "phpunit/phpunit": "3.7.*"
             },
             "type": "library",
             "autoload": {
@@ -2808,16 +2242,12 @@
             "authors": [
                 {
                     "name": "Ryan Chouinard",
-                    "email": "rchouinard@gmail.com"
+                    "email": "rchouinard@gmail.com",
+                    "homepage": "http://ryanchouinard.com"
                 }
             ],
             "description": "Provides hash_pbkdf2() to PHP versions >=5.3,<5.5.",
-            "keywords": [
-                "compatibility",
-                "hash_pbkdf2",
-                "pbkdf2"
-            ],
-            "time": "2015-11-23T03:34:42+00:00"
+            "time": "2013-09-22T19:21:02+00:00"
         },
         {
             "name": "simplesoftwareio/simple-qrcode",
@@ -5423,9 +4853,18 @@
             "time": "2016-11-23T20:04:58+00:00"
         }
     ],
-    "aliases": [],
+    "aliases": [
+        {
+            "alias": "v0.3.0",
+            "alias_normalized": "0.3.0.0",
+            "version": "dev-bugfix",
+            "package": "mdanter/ecc"
+        }
+    ],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "mdanter/ecc": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
