@@ -116,6 +116,10 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'device.device_id' => 'ID',
+        'device.type' => 'Type',
+        'device.version' => 'version'
+    ],
 
 ];

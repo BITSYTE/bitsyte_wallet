@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.4.34 on 2017-08-24.
+ * Generated for Laravel 5.4.36 on 2017-09-05.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -416,7 +416,7 @@ namespace Illuminate\Support\Facades {
          * Register a deferred provider and service.
          *
          * @param string $provider
-         * @param string $service
+         * @param string|null $service
          * @return void 
          * @static 
          */ 
@@ -11748,6 +11748,141 @@ namespace Ixudra\Curl\Facades {
  
 }
 
+namespace Tymon\JWTAuth\Facades { 
+
+    class JWTFactory {
+        
+        /**
+         * Create the Payload instance.
+         *
+         * @param array $customClaims
+         * @return \Tymon\JWTAuth\Payload 
+         * @static 
+         */ 
+        public static function make($customClaims = array())
+        {
+            return \Tymon\JWTAuth\PayloadFactory::make($customClaims);
+        }
+        
+        /**
+         * Add an array of claims to the Payload.
+         *
+         * @param array $claims
+         * @return $this 
+         * @static 
+         */ 
+        public static function addClaims($claims)
+        {
+            return \Tymon\JWTAuth\PayloadFactory::addClaims($claims);
+        }
+        
+        /**
+         * Add a claim to the Payload.
+         *
+         * @param string $name
+         * @param mixed $value
+         * @return $this 
+         * @static 
+         */ 
+        public static function addClaim($name, $value)
+        {
+            return \Tymon\JWTAuth\PayloadFactory::addClaim($name, $value);
+        }
+        
+        /**
+         * Build out the Claim DTO's.
+         *
+         * @return array 
+         * @static 
+         */ 
+        public static function resolveClaims()
+        {
+            return \Tymon\JWTAuth\PayloadFactory::resolveClaims();
+        }
+        
+        /**
+         * Set the Issuer (iss) claim.
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function iss()
+        {
+            return \Tymon\JWTAuth\PayloadFactory::iss();
+        }
+        
+        /**
+         * Set the Issued At (iat) claim.
+         *
+         * @return int 
+         * @static 
+         */ 
+        public static function iat()
+        {
+            return \Tymon\JWTAuth\PayloadFactory::iat();
+        }
+        
+        /**
+         * Set the Expiration (exp) claim.
+         *
+         * @return int 
+         * @static 
+         */ 
+        public static function exp()
+        {
+            return \Tymon\JWTAuth\PayloadFactory::exp();
+        }
+        
+        /**
+         * Set the Not Before (nbf) claim.
+         *
+         * @return int 
+         * @static 
+         */ 
+        public static function nbf()
+        {
+            return \Tymon\JWTAuth\PayloadFactory::nbf();
+        }
+        
+        /**
+         * Set the token ttl (in minutes).
+         *
+         * @param int $ttl
+         * @return $this 
+         * @static 
+         */ 
+        public static function setTTL($ttl)
+        {
+            return \Tymon\JWTAuth\PayloadFactory::setTTL($ttl);
+        }
+        
+        /**
+         * Get the token ttl.
+         *
+         * @return int 
+         * @static 
+         */ 
+        public static function getTTL()
+        {
+            return \Tymon\JWTAuth\PayloadFactory::getTTL();
+        }
+        
+        /**
+         * Set the refresh flow.
+         *
+         * @param bool $refreshFlow
+         * @return $this 
+         * @static 
+         */ 
+        public static function setRefreshFlow($refreshFlow = true)
+        {
+            return \Tymon\JWTAuth\PayloadFactory::setRefreshFlow($refreshFlow);
+        }
+         
+    }
+ 
+}
+
 
 namespace  { 
 
@@ -13840,6 +13975,8 @@ namespace  {
     class QrCode extends \SimpleSoftwareIO\QrCode\Facades\QrCode {}
 
     class Curl extends \Ixudra\Curl\Facades\Curl {}
+
+    class JWTFactory extends \Tymon\JWTAuth\Facades\JWTFactory {}
  
 }
 

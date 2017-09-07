@@ -4,7 +4,11 @@ namespace App\Exceptions;
 
 use Exception;
 use Illuminate\Auth\AuthenticationException;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Database\QueryException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Validation\ValidationException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class Handler extends ExceptionHandler
 {
@@ -40,10 +44,37 @@ class Handler extends ExceptionHandler
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Exception  $exception
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Response | \Symfony\Component\HttpFoundation\Response
      */
     public function render($request, Exception $exception)
     {
+        if ($exception instanceof ValidationException && $request->wantsJson()) {
+            /** @var ValidationException $exception */
+            $errors = $exception->validator->getMessageBag()->toArray();
+            return response()->json(['errors' => $errors], 422);
+        }
+
+        if ($exception instanceof ModelNotFoundException && $request->wantsJson())
+        {
+            return response()->json([
+                'data' => 'Resource not found'
+            ], 404);
+        }
+
+        if ($exception instanceof NotFoundHttpException && $request->wantsJson()) {
+            return response()->json(['error' => 'The specified URL cannot be found'], 404);
+        }
+
+        if ($exception instanceof QueryException && $request->wantsJson()) {
+            return response()->json(['error' => $exception->getMessage()], 409);
+        }
+
+        if ($exception instanceof \Tymon\JWTAuth\Exceptions\TokenExpiredException) {
+            return response()->json(['token_expired'], $exception->getStatusCode());
+        } else if ($exception instanceof \Tymon\JWTAuth\Exceptions\TokenInvalidException) {
+            return response()->json(['token_invalid'], $exception->getStatusCode());
+        }
+
         return parent::render($request, $exception);
     }
 

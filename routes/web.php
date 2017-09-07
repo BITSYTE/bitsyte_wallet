@@ -11,6 +11,11 @@
 |
 */
 
+Route::auth();
+
+Route::get('/home', function(){
+    return 'Its authenticated!';
+});
 
 Route::group(['namespace' => 'Web', 'prefix' => 'test'], function () {
     //Address
