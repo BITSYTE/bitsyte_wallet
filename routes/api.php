@@ -28,6 +28,9 @@ Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail'
 Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
-//Authorization middleware
-Route::middleware('jwt.auth')->resource('users', 'User\UserController');
-Route::middleware('allow.transactions','jwt.auth')->get('transaction', 'Api\Transaction@index');
+//Authorization API routes
+Route::group(['middleware' => ['jwt.auth'], 'namespace' => 'Api\V1'], function () {
+    Route::resource('users', 'UserController');
+    Route::middleware('allow.transactions')->get('transactions', 'TransactionController@index'); //not implemented
+});
+
