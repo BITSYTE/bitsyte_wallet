@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Notifications\EmailVerification;
 use DB;
 use JWTAuth;
 use App\Models\User;
@@ -103,6 +104,7 @@ class RegisterController extends Controller
 
             $user = User::create($data);
             $user->devices()->save(new Device($data['device']));
+            $this->sendNotificationTo($user);
 
             DB::commit();
         } catch (QueryException $e) {
@@ -115,7 +117,7 @@ class RegisterController extends Controller
 
     public function createUserFromWebRequest(Array $data)
     {
-        return User::create($data);
+        return $this->sendNotificationTo(User::create($data));
     }
 
     /**
@@ -134,5 +136,19 @@ class RegisterController extends Controller
         $token = JWTAuth::fromUser($user);
 
         return response()->json(['token' => $token, 'data' => $user],200);
+    }
+
+
+    /**
+     * Send an email notification when the user is registered
+     *
+     * @param User $user
+     * @return User
+     */
+    public function sendNotificationTo(User $user)
+    {
+        $user->notify(new EmailVerification($user));
+
+        return $user;
     }
 }

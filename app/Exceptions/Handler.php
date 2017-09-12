@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Database\QueryException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Validation\ValidationException;
+use Swift_TransportException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class Handler extends ExceptionHandler
@@ -73,6 +74,10 @@ class Handler extends ExceptionHandler
             return response()->json(['token_expired'], $exception->getStatusCode());
         } else if ($exception instanceof \Tymon\JWTAuth\Exceptions\TokenInvalidException) {
             return response()->json(['token_invalid'], $exception->getStatusCode());
+        }
+
+        if ($exception instanceof Swift_TransportException) {
+            return response()->json(['errors' => 'Failed to authenticate on SMTP server'], 500);
         }
 
         return parent::render($request, $exception);

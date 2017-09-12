@@ -28,6 +28,6 @@ class RegisteredListener
     public function handle(Registered $event)
     {
         /** @var \App\Models\User $event */
-        $event->user->notify(new EmailVerification($event->user));
+        //$event->user->notify(new EmailVerification($event->user));
     }
 }
