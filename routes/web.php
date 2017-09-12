@@ -17,6 +17,9 @@ Route::get('/home', function(){
     return 'Its authenticated!';
 });
 
+//Email verification
+Route::get('verification/{token}', 'Email\EmailVerificationController@check')->name('verification');
+
 Route::group(['namespace' => 'Web', 'prefix' => 'test'], function () {
     //Address
     Route::group(['prefix' => 'address', 'as' => 'address.'], function () {
