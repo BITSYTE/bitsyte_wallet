@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Notifications\EmailVerification;
 use DB;
 use JWTAuth;
 use App\Models\User;
@@ -11,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Database\QueryException;
+use App\Notifications\EmailVerification;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -90,7 +90,7 @@ class RegisterController extends Controller
      */
     protected function create(Request $request )
     {
-        if ($request->wantsJson()) {
+        if ($this->expectsJson($request)) {
             return $this->createUserFromDeviceRequest($request->all());
         }
 
@@ -150,5 +150,10 @@ class RegisterController extends Controller
         $user->notify(new EmailVerification($user));
 
         return $user;
+    }
+
+    public function expectsJson(Request $request)
+    {
+        return $request->wantsJson() && $request->isJson();
     }
 }

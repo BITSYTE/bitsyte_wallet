@@ -27,7 +27,8 @@ class User extends Authenticatable
         'password',
         'remember_token',
         'api_token', 'confirmed',
-        'confirmation_token'
+        'confirmation_token',
+        'id'
     ];
 
     protected $casts = [
