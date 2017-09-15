@@ -181,6 +181,7 @@ return [
         SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
         Ixudra\Curl\CurlServiceProvider::class,
         Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
+        App\Providers\BlockCypherProvider::class,
     ],
 
     /*

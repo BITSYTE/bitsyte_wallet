@@ -13,14 +13,13 @@ class AddressController extends Controller
     private $token;
     private $apiContext;
 
-    public function __construct()
+    /**
+     * AddressController constructor.
+     * @param ApiContext $apiContext
+     */
+    public function __construct(ApiContext $apiContext)
     {
-        $this->token = env('BLOCKCYPHER_TOKEN');
-        $this->apiContext = new ApiContext(new SimpleTokenCredential($this->token));
-
-        $this->apiContext = ApiContext::create(env('BLOCKCYPHER_ENV', 'test3'), 'btc', 'v1', new SimpleTokenCredential($this->token),
-            array('log.LogEnabled' => true, 'log.FileName' => 'BlockCypher.log', 'log.LogLevel' => 'DEBUG')
-        );
+        $this->apiContext = $apiContext;
     }
 
     public function index()

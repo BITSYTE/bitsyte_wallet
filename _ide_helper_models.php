@@ -10,6 +10,32 @@
 
 namespace App\Models{
 /**
+ * App\Models\Address
+ *
+ * @property int $id
+ * @property int|null $user_id
+ * @property int|null $wallet_id
+ * @property string $private
+ * @property string $public
+ * @property string $address
+ * @property string $wif
+ * @property \Carbon\Carbon|null $created_at
+ * @property \Carbon\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Address whereAddress($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Address whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Address whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Address wherePrivate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Address wherePublic($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Address whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Address whereUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Address whereWalletId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Address whereWif($value)
+ */
+	class Address extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
  * App\Models\Device
  *
  * @property int $id
@@ -48,6 +74,7 @@ namespace App\Models{
  * @property \Carbon\Carbon|null $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Device[] $devices
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Wallet[] $wallets
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereApiToken($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereConfirmationToken($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereConfirmed($value)
@@ -62,5 +89,25 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereUuid($value)
  */
 	class User extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * App\Models\Wallet
+ *
+ * @property int $id
+ * @property int $user_id
+ * @property string $token
+ * @property string $name
+ * @property \Carbon\Carbon|null $created_at
+ * @property \Carbon\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Wallet whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Wallet whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Wallet whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Wallet whereToken($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Wallet whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Wallet whereUserId($value)
+ */
+	class Wallet extends \Eloquent {}
 }
 

@@ -2,12 +2,18 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Models\Wallet as WalletModel;
 use DB;
 use JWTAuth;
 use App\Models\User;
 use App\Models\Device;
+use App\Models\Address;
+use BlockCypher\Api\Wallet;
 use Illuminate\Http\Request;
+use BlockCypher\Rest\ApiContext;
+use BlockCypher\Client\WalletClient;
 use App\Http\Controllers\Controller;
+use BlockCypher\Client\AddressClient;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Database\QueryException;
 use App\Notifications\EmailVerification;
@@ -35,15 +41,20 @@ class RegisterController extends Controller
      * @var string
      */
     protected $redirectTo = '/home';
+    /**
+     * @var ApiContext
+     */
+    private $apiContext;
 
     /**
      * Create a new controller instance.
      *
-     * @return void
+     * @param ApiContext $apiContext
      */
-    public function __construct()
+    public function __construct(ApiContext $apiContext)
     {
         $this->middleware('guest');
+        $this->apiContext = $apiContext;
     }
 
     /**
@@ -104,10 +115,14 @@ class RegisterController extends Controller
 
             $user = User::create($data);
             $user->devices()->save(new Device($data['device']));
+            $this->createWallet($this->apiContext, $user);
             $this->sendNotificationTo($user);
 
             DB::commit();
         } catch (QueryException $e) {
+            DB::rollBack();
+            throw $e;
+        } catch (\Exception $e) {
             DB::rollBack();
             throw $e;
         }
@@ -155,5 +170,34 @@ class RegisterController extends Controller
     public function expectsJson(Request $request)
     {
         return $request->wantsJson() && $request->isJson();
+    }
+
+    public function createWallet(ApiContext $apiContext, User $user)
+    {
+        $addressClient = new AddressClient($apiContext);
+        $addressKeyChain = $addressClient->generateAddress();
+        $address = Address::create([
+            'private' => $addressKeyChain->getPrivate(),
+            'public'  => $addressKeyChain->getPublic(),
+            'address' => $addressKeyChain->getAddress(),
+            'wif'     => $addressKeyChain->getWif(),
+        ]);
+
+        $wallet = new Wallet();
+        $wallet->setName($user->email);
+        $wallet->addAddress($addressKeyChain->getAddress());
+
+        $walletClient = new WalletClient($apiContext);
+        $createdWallet = $walletClient->create($wallet);
+
+        $walletModel = WalletModel::create([
+            'token' => $createdWallet->getToken(),
+            'name' => $createdWallet->getName(),
+        ]);
+
+        $walletModel->addresses()->save($address);
+        $user->wallets()->save($walletModel);
+        $user->wallets()->save($address);
+
     }
 }
