@@ -58,8 +58,9 @@ namespace App\Models{
 
 namespace App\Models{
 /**
- * App\Models\User
+ * Class User
  *
+ * @package App\Models
  * @property int $id
  * @property string $uuid
  * @property string $first_name
@@ -72,6 +73,7 @@ namespace App\Models{
  * @property string|null $remember_token
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Address[] $addresses
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Device[] $devices
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Wallet[] $wallets
@@ -96,11 +98,12 @@ namespace App\Models{
  * App\Models\Wallet
  *
  * @property int $id
- * @property int $user_id
+ * @property int|null $user_id
  * @property string $token
  * @property string $name
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Address[] $addresses
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Wallet whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Wallet whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Wallet whereName($value)

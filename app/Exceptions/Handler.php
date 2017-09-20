@@ -2,6 +2,7 @@
 
 namespace App\Exceptions;
 
+use BlockCypher\Exception\BlockCypherConnectionException;
 use Exception;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -49,6 +50,10 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        /*if ($exception instanceof BlockCypherConnectionException) {
+            return response()->json(['errors' => 'Got Http response code 400 when accessing']);
+        }*/
+
         if ($exception instanceof ValidationException && $request->wantsJson()) {
             /** @var ValidationException $exception */
             $errors = $exception->validator->getMessageBag()->toArray();

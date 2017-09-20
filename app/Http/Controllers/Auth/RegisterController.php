@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Models\Wallet as WalletModel;
+use BlockCypher\Client\AddressClient;
 use DB;
 use JWTAuth;
 use App\Models\User;
+use App\Models\Wallet;
 use App\Models\Device;
 use App\Models\Address;
-use BlockCypher\Api\Wallet;
+use BlockCypher\Api\Wallet as ApiWallet;
 use Illuminate\Http\Request;
 use BlockCypher\Rest\ApiContext;
 use BlockCypher\Client\WalletClient;
 use App\Http\Controllers\Controller;
-use BlockCypher\Client\AddressClient;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Database\QueryException;
 use App\Notifications\EmailVerification;
@@ -176,6 +176,14 @@ class RegisterController extends Controller
     {
         $addressClient = new AddressClient($apiContext);
         $addressKeyChain = $addressClient->generateAddress();
+
+        $wallet = new ApiWallet();
+        $wallet->setName($user->email);
+        $wallet->addAddress($addressKeyChain->getAddress());
+
+        $walletClient = new WalletClient($apiContext);
+        $createdWallet = $walletClient->create($wallet);
+
         $address = Address::create([
             'private' => $addressKeyChain->getPrivate(),
             'public'  => $addressKeyChain->getPublic(),
@@ -183,21 +191,14 @@ class RegisterController extends Controller
             'wif'     => $addressKeyChain->getWif(),
         ]);
 
-        $wallet = new Wallet();
-        $wallet->setName($user->email);
-        $wallet->addAddress($addressKeyChain->getAddress());
-
-        $walletClient = new WalletClient($apiContext);
-        $createdWallet = $walletClient->create($wallet);
-
-        $walletModel = WalletModel::create([
+        $wallet = Wallet::create([
             'token' => $createdWallet->getToken(),
             'name' => $createdWallet->getName(),
         ]);
 
-        $walletModel->addresses()->save($address);
-        $user->wallets()->save($walletModel);
-        $user->wallets()->save($address);
+        $wallet->addAddress($address);
+        $user->addWallet($wallet);
+        $user->addAddress($address);
 
     }
 }

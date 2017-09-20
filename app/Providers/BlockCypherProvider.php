@@ -39,7 +39,7 @@ class BlockCypherProvider extends ServiceProvider
                 $config['chain'],
                 $config['coin'],
                 $config['version'],
-                $this->getCredentials($config['key']),
+                new SimpleTokenCredential($config['key']),
                 $config['config']
             );
         });

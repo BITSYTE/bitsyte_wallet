@@ -32,6 +32,7 @@ Route::group(['namespace' => 'Web', 'prefix' => 'test'], function () {
     //Wallets
     Route::group(['prefix' => 'wallets', 'as' => 'wallets.'], function () {
         Route::get('/create/{address}', 'WalletsController@create')->name('create');
+        Route::get('/create/address', 'WalletsController@createWithAddress')->name('create.with.address');
     });
 
     //Transaction

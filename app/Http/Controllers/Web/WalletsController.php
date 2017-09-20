@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Web;
 
-use App\Facades\BlockCypherFacade;
 use BlockCypher\Api\Wallet;
 use BlockCypher\Auth\SimpleTokenCredential;
 use BlockCypher\Client\WalletClient;
@@ -22,11 +21,18 @@ class WalletsController extends Controller
     public function create($address)
     {
         $wallet = new Wallet();
-        $wallet->setName('PedroDev');
+        $wallet->setName('roberto_example.com');
         $wallet->setAddresses(array($address));
 
         $walletClient = new WalletClient($this->apiContext);
         $createdWallet = $walletClient->create($wallet);
         dd($createdWallet);
+    }
+
+    public function createWithAddress()
+    {
+        $walletClient = new WalletClient($this->apiContext);
+        $walletGenerateAddressResponse = $walletClient->generateAddress('fernando');
+        dd($walletGenerateAddressResponse);
     }
 }
