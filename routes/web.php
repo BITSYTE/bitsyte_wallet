@@ -11,16 +11,29 @@
 |
 */
 
-Route::auth();
+Route::group(['namespace' => 'Auth'], function () {
 
-Route::get('/home', function(){
-    return 'Its authenticated!';
+});
+
+Route::group(['namespace' => 'Web'], function () {
+    Route::group(['middleware' => 'auth'], function () {
+        //home
+        Route::get('/', 'DashboardController@index')->name('home');
+
+        //Wallet
+
+        //
+    });
+
+
 });
 
 //Email verification
 Route::get('verification/{token}', 'Email\EmailVerificationController@check')->name('verification');
 
 Route::group(['namespace' => 'Web', 'prefix' => 'test'], function () {
+
+
     //Address
     Route::group(['prefix' => 'address', 'as' => 'address.'], function () {
         Route::get('/create', 'AddressController@create')->name('create');
@@ -41,3 +54,7 @@ Route::group(['namespace' => 'Web', 'prefix' => 'test'], function () {
         Route::get('/create2', 'TransactionsController@create2')->name('create2');
     });
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
