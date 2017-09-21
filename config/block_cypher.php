@@ -2,9 +2,9 @@
 
 return [
 
-    'key' => env('APP_BLOCKCYPHER_TOKEN'),
+    'key' => env('BLOCKCYPHER_TOKEN'),
 
-    'chain' => env('APP_BLOCKCYPHER_ENV', 'test3'),
+    'chain' => env('BLOCKCYPHER_ENV', 'test3'),
 
     'coin' => 'btc',
 

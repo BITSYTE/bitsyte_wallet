@@ -50,9 +50,9 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-        /*if ($exception instanceof BlockCypherConnectionException) {
-            return response()->json(['errors' => 'Got Http response code 400 when accessing']);
-        }*/
+        if ($exception instanceof BlockCypherConnectionException) {
+            return response()->json(['errors' => $exception->getMessage()]);
+        }
 
         if ($exception instanceof ValidationException && $request->wantsJson()) {
             /** @var ValidationException $exception */
@@ -85,7 +85,11 @@ class Handler extends ExceptionHandler
             return response()->json(['errors' => 'Failed to authenticate on SMTP server'], 500);
         }
 
-        return parent::render($request, $exception);
+        if (config('app.debug')) {
+            return parent::render($request, $exception);
+        }
+
+        return response()->json(['errors' => $exception->getMessage()], 500);
     }
 
     /**
