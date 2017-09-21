@@ -8,6 +8,10 @@ use App\Http\Controllers\Controller;
 
 class EmailVerificationController extends Controller
 {
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function check(Request $request)
     {
         $user = User::whereConfirmationToken($request->token)->firstOrFail();
