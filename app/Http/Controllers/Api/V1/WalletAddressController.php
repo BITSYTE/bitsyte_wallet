@@ -17,7 +17,7 @@ class WalletAddressController extends Controller
      */
     public function index(Wallet $wallet)
     {
-
+        //
     }
 
     /**

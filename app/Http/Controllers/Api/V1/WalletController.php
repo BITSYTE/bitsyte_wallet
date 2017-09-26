@@ -34,9 +34,11 @@ class WalletController extends Controller
      */
     public function index()
     {
-        $wallets = Wallet::whereUserId(JWTAuth::user()->id)->get();
+        $user = JWTAuth::parseToken()->authenticate();
 
-        return response()->json($wallets);
+        $wallets = Wallet::whereUserId($user->id)->first();
+
+        return response()->json(['data' => $wallets]);
     }
 
     /**
@@ -59,9 +61,10 @@ class WalletController extends Controller
     public function store(Request $request)
     {
         try {
+            $user = JWTAuth::parseToken()->authenticate();
 
             $wallet = new ApiWallet();
-            $wallet->setName(JWTAuth::user()->email);
+            $wallet->setName($user->email);
 
             $this->walletClient = new WalletClient($this->apiContext);
             $createdWallet = $this->walletClient->create($wallet);

@@ -44,4 +44,14 @@ class Wallet extends Model
         $this->addresses()->save($address);
     }
 
+    /**
+     * Get the related user
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
 }
