@@ -30,7 +30,10 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $models = [
-        \App\Models\User::class,
+        'user' => \App\Models\User::class,
+        'wallet' => \App\Models\Wallet::class,
+        'device' => \App\Models\Device::class,
+        'address' => \App\Models\Address::class,
     ];
 
     /**
@@ -43,14 +46,13 @@ class EventServiceProvider extends ServiceProvider
         parent::boot();
 
         $this->registerUuidObservers();
-        $this->registerApiCodeObservers();
+        //$this->registerApiCodeObservers();
         $this->registerConfirmationTokenObservers();
     }
 
     public function registerUuidObservers()
     {
         collect($this->models)->each(function($model) {
-
             /** @var \Illuminate\Database\Eloquent\Model $model */
             $model::observe(app(UuidObserver::class));
         });
@@ -59,7 +61,6 @@ class EventServiceProvider extends ServiceProvider
     public function registerApiCodeObservers()
     {
         collect($this->models)->each(function($model) {
-
             /** @var \Illuminate\Database\Eloquent\Model $model */
             $model::observe(app(ApiCodeObserver::class));
         });
@@ -67,8 +68,7 @@ class EventServiceProvider extends ServiceProvider
 
     public function registerConfirmationTokenObservers()
     {
-        collect($this->models)->each(function($model) {
-
+        collect($this->models)->only('user')->each(function($model) {
             /** @var \Illuminate\Database\Eloquent\Model $model */
             $model::observe(app(ConfirmationTokenObserver::class));
         });

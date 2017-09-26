@@ -15,6 +15,16 @@ class Wallet extends Model
     ];
 
     /**
+     * Get the route key for the model.
+     *
+     * @return string
+     */
+    public function getRouteKeyName()
+    {
+        return 'uuid';
+    }
+
+    /**
      * Relationship with Addresses
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

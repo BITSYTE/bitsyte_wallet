@@ -2,20 +2,20 @@
 
 namespace App\Http\Controllers\Auth;
 
-use BlockCypher\Client\AddressClient;
 use DB;
 use JWTAuth;
 use App\Models\User;
 use App\Models\Wallet;
 use App\Models\Device;
 use App\Models\Address;
-use BlockCypher\Api\Wallet as ApiWallet;
 use Illuminate\Http\Request;
 use BlockCypher\Rest\ApiContext;
 use BlockCypher\Client\WalletClient;
 use App\Http\Controllers\Controller;
+use BlockCypher\Client\AddressClient;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Database\QueryException;
+use BlockCypher\Api\Wallet as ApiWallet;
 use App\Notifications\EmailVerification;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;

@@ -43,6 +43,7 @@ class LoginListener
         })->first();
 
         if (!$device) {
+            /** @var User $event */
             $event->user->devices()->create($this->request->device);
         }
 

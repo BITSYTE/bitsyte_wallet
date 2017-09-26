@@ -15,6 +15,7 @@ class CreateAddressesTable extends Migration
     {
         Schema::create('addresses', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->uuid('uuid');
             $table->unsignedBigInteger('user_id')->nullable();
             $table->unsignedBigInteger('wallet_id')->nullable();
             $table->string('private');

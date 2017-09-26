@@ -1,0 +1,6 @@
+# Created by .ignore support plugin (hsz.mobi)
+Browser/
+Feature/
+Unit/
+!Unit/ExampleTest.php
+!Feature/ExampleTest.php

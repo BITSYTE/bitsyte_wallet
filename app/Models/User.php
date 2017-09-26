@@ -32,7 +32,7 @@ class User extends Authenticatable
         'remember_token',
         'api_token', 'confirmed',
         'confirmation_token',
-        'id'
+        'id', 'created_at', 'updated_at',
     ];
 
     /**

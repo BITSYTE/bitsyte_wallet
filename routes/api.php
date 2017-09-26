@@ -28,7 +28,13 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
 //Authorization API routes
 Route::group(['middleware' => ['jwt.auth'], 'namespace' => 'Api\V1'], function () {
-    Route::resource('users', 'UserController');
+
+    Route::group(['as' => 'users.', 'prefix' => 'users'], function () {
+        Route::ApiResource('wallets', 'WalletController', ['except' => ['update']]);
+        Route::ApiResource('addresses','AddressController',['only' => ['create', 'index', 'show']]);
+        Route::ApiResource('wallets.addresses', 'WalletAddressController');
+    });
+
     Route::middleware('allow.transactions')->get('transactions', 'TransactionController@index'); //not implemented
 });
 
