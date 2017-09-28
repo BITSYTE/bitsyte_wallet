@@ -5,9 +5,10 @@ namespace App\Http\Controllers\Api\V1;
 use App\Models\Address;
 use BlockCypher\Client\AddressClient;
 use BlockCypher\Rest\ApiContext;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Tymon\JWTAuth\JWTAuth;
+use JWTAuth;
 
 class AddressController extends Controller
 {
@@ -31,7 +32,9 @@ class AddressController extends Controller
      */
     public function index()
     {
-        $address = Address::whereUserId(JWTAuth::user()->id)->get();
+        $user = JWTAuth::parseToken()->authenticate();
+
+        $address = Address::whereUserId($user->id)->get();
 
         return response()->json(['data' => $address]);
     }
@@ -54,6 +57,8 @@ class AddressController extends Controller
      */
     public function store(Request $request)
     {
+        $user = JWTAuth::parseToken()->authenticate();
+
         $addressClient = new AddressClient($this->apiContext);
         $this->addressKeyChain = $addressClient->generateAddress();
 
@@ -64,22 +69,41 @@ class AddressController extends Controller
             'wif' => $this->addressKeyChain->getWif(),
         ]);
 
-        JWTAuth::user()->addresses()->save($address);
+        $user->addresses()->save($address);
 
-        return response()->json(['data' => $address]);
+        return response()->json(['data' => $address], 201);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Address  $address
+     * @param  \App\Models\Address $address
      * @return \Illuminate\Http\Response
+     * @throws AuthorizationException
      */
     public function show(Address $address)
     {
-        $addressClient = new AddressClient($this->apiContext);
-        $addressBalance = $addressClient->getBalance($address->address);
-        return response()->json(['data' => $addressBalance]);
+        $user = JWTAuth::parseToken()->authenticate();
+
+        if ($user->can('view', $address)) {
+
+            $addressClient = new AddressClient($this->apiContext);
+            $addressBalance = $addressClient->getBalance($address->address);
+
+            return response()->json(['data' => [
+                "address" => $addressBalance->getAddress(),
+                "total_received" => $addressBalance->getTotalReceived(),
+                "total_sent" => $addressBalance->getTotalSent(),
+                "balance" => $addressBalance->getBalance(),
+                "unconfirmed_balance" => $addressBalance->getUnconfirmedBalance(),
+                "final_balance" => $addressBalance->getFinalBalance(),
+                "n_tx" => $addressBalance->getNTx(),
+                "unconfirmed_n_tx" => $addressBalance->getUnconfirmedNTx(),
+                "final_n_tx" => $addressBalance->getFinalNTx(),
+            ]]);
+        }
+
+        throw new AuthorizationException('You do not have permission to view this resource.');
     }
 
     /**

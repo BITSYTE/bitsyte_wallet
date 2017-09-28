@@ -2,6 +2,10 @@
 
 namespace App\Providers;
 
+use App\Models\Address;
+use App\Models\Wallet;
+use App\Policies\AddressPolicy;
+use App\Policies\WalletPolicy;
 use Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
@@ -13,7 +17,8 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        'App\Model' => 'App\Policies\ModelPolicy',
+        Wallet::class => WalletPolicy::class,
+        Address::class => AddressPolicy::class,
     ];
 
     /**

@@ -12,6 +12,11 @@ class Address extends Model
         'private', 'public', 'address', 'wif'
     ];
 
+    /** @var array  */
+    protected $hidden = [
+        'id', 'user_id', 'wallet_id', 'updated_at', 'created_at'
+    ];
+
     /**
      * Get the route key for the model.
      *
@@ -20,6 +25,16 @@ class Address extends Model
     public function getRouteKeyName()
     {
         return 'uuid';
+    }
+
+    public function wallet()
+    {
+        return $this->belongsTo(Wallet::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 
 }

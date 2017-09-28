@@ -30,8 +30,8 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 Route::group(['middleware' => ['jwt.auth'], 'namespace' => 'Api\V1'], function () {
 
     Route::group(['as' => 'users.', 'prefix' => 'users'], function () {
-        Route::ApiResource('wallets', 'WalletController', ['except' => ['update']]);
-        Route::ApiResource('addresses','AddressController',['only' => ['create', 'index', 'show']]);
+        Route::ApiResource('wallets', 'WalletController');
+        Route::ApiResource('addresses','AddressController');
         Route::ApiResource('wallets.addresses', 'WalletAddressController');
     });
 

@@ -6,12 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Wallet extends Model
 {
-    /**
-     *
-     * @var array
-     */
+    /** @var array */
     protected $fillable = [
         'token', 'name'
+    ];
+
+    /** @var array  */
+    protected $hidden = [
+        'id', 'user_id', 'updated_at', 'created_at'
     ];
 
     /**

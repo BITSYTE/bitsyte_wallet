@@ -2,15 +2,18 @@
 
 namespace App\Exceptions;
 
-use BlockCypher\Exception\BlockCypherConnectionException;
 use Exception;
-use Illuminate\Auth\AuthenticationException;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
-use Illuminate\Database\QueryException;
-use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
-use Illuminate\Validation\ValidationException;
 use Swift_TransportException;
+use Illuminate\Database\QueryException;
+use Illuminate\Auth\AuthenticationException;
+use Illuminate\Validation\ValidationException;
+use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use BlockCypher\Exception\BlockCypherConnectionException;
+use Symfony\Component\HttpKernel\Exception\HttpException;
+use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
 
 class Handler extends ExceptionHandler
 {
@@ -60,11 +63,23 @@ class Handler extends ExceptionHandler
             return response()->json(['errors' => $errors], 422);
         }
 
+        if ($exception instanceof AuthorizationException) {
+            return response()->json(['errors' => $exception->getMessage()], 403);
+        }
+
         if ($exception instanceof ModelNotFoundException && $request->wantsJson())
         {
             return response()->json([
                 'data' => 'Resource not found'
             ], 404);
+        }
+
+        if ($exception instanceof MethodNotAllowedHttpException) {
+            return response()->json('The specified method for the request is invalid', 405);
+        }
+
+        if ($exception instanceof HttpException) {
+            return response()->json($exception->getMessage(), $exception->getStatusCode());
         }
 
         if ($exception instanceof NotFoundHttpException && $request->wantsJson()) {
