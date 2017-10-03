@@ -6,6 +6,7 @@ use App\Models\Wallet;
 use App\Providers\BlockCypherProvider;
 use BlockCypher\Client\WalletClient;
 use BlockCypher\Rest\ApiContext;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -22,6 +23,12 @@ class WalletController extends Controller
     /** @var  WalletClient $walletClient */
     private $walletClient;
 
+
+    /**
+     * WalletController constructor.
+     *
+     * @param ApiContext $apiContext
+     */
     public function __construct(ApiContext $apiContext)
     {
         $this->apiContext = $apiContext;
@@ -121,15 +128,24 @@ class WalletController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Wallet  $wallet
+     * @param  \App\Models\Wallet $wallet
      * @return \Illuminate\Http\Response
+     * @throws AuthorizationException
      */
     public function destroy(Wallet $wallet)
     {
-        $this->walletClient = new WalletClient($this->apiContext);
+        $user = JWTAuth::parseToken()->authenticate();
 
-        $this->walletClient->delete($wallet->name);
+        if ($user->can('delete', $wallet)) {
+            $this->walletClient = new WalletClient($this->apiContext);
 
-        $wallet->delete();
+            $this->walletClient->delete($wallet->name);
+
+            $wallet->delete();
+
+            return response()->json(['data' => 'true']);
+        }
+
+        throw new AuthorizationException('you do not have permission to delete this resource');
     }
 }

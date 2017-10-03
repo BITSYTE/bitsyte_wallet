@@ -3,6 +3,9 @@
 namespace App\Providers;
 
 use BlockCypher\Auth\SimpleTokenCredential;
+use BlockCypher\Client\AddressClient;
+use BlockCypher\Client\TXClient;
+use BlockCypher\Client\WalletClient;
 use BlockCypher\Rest\ApiContext;
 use Illuminate\Support\ServiceProvider;
 
@@ -43,10 +46,29 @@ class BlockCypherProvider extends ServiceProvider
                 $config['config']
             );
         });
+
+        $this->app->bind(WalletClient::class, function($app){
+            $apiContext = $app->make(ApiContext::class);
+
+            return new WalletClient($apiContext);
+        });
+
+        $this->app->bind(AddressClient::class, function($app){
+            $apiContext = $app->make(ApiContext::class);
+
+            return new AddressClient($apiContext);
+        });
+
+        $this->app->bind(TXClient::class, function($app){
+            $apiContext = $app->make(ApiContext::class);
+
+            return new TXClient($apiContext);
+        });
     }
 
     public function getCredentials($token)
     {
         return new SimpleTokenCredential($token);
     }
+
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Models\Address;
+use App\Services\BlockCypherClientFactory;
 use BlockCypher\Client\AddressClient;
 use BlockCypher\Rest\ApiContext;
 use Illuminate\Auth\Access\AuthorizationException;
@@ -19,10 +20,21 @@ class AddressController extends Controller
 
     private $addressKeyChain;
 
-    public function __construct(ApiContext $apiContext)
+    /**
+     * @var BlockCypherClientFactory
+     */
+    private $clientFactory;
+
+    /**
+     * AddressController constructor.
+     * @param ApiContext $apiContext
+     * @param BlockCypherClientFactory $clientFactory
+     */
+    public function __construct(ApiContext $apiContext, BlockCypherClientFactory $clientFactory)
     {
 
         $this->apiContext = $apiContext;
+        $this->clientFactory = $clientFactory;
     }
 
     /**
@@ -58,8 +70,8 @@ class AddressController extends Controller
     public function store(Request $request)
     {
         $user = JWTAuth::parseToken()->authenticate();
-
-        $addressClient = new AddressClient($this->apiContext);
+        /** @var AddressClient $addressClient */
+        $addressClient = $this->clientFactory->create('address');
         $this->addressKeyChain = $addressClient->generateAddress();
 
         $address = Address::create([
@@ -87,20 +99,11 @@ class AddressController extends Controller
 
         if ($user->can('view', $address)) {
 
-            $addressClient = new AddressClient($this->apiContext);
+            /** @var AddressClient $addressClient */
+            $addressClient = $this->clientFactory->create('address');
             $addressBalance = $addressClient->getBalance($address->address);
 
-            return response()->json(['data' => [
-                "address" => $addressBalance->getAddress(),
-                "total_received" => $addressBalance->getTotalReceived(),
-                "total_sent" => $addressBalance->getTotalSent(),
-                "balance" => $addressBalance->getBalance(),
-                "unconfirmed_balance" => $addressBalance->getUnconfirmedBalance(),
-                "final_balance" => $addressBalance->getFinalBalance(),
-                "n_tx" => $addressBalance->getNTx(),
-                "unconfirmed_n_tx" => $addressBalance->getUnconfirmedNTx(),
-                "final_n_tx" => $addressBalance->getFinalNTx(),
-            ]]);
+            return response()->json(['data' => $addressBalance->toArray()]);
         }
 
         throw new AuthorizationException('You do not have permission to view this resource.');
