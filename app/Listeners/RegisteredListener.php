@@ -7,6 +7,11 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
+/**
+ * Class RegisteredListener
+ *
+ * @package App\Listeners
+ */
 class RegisteredListener
 {
     /**

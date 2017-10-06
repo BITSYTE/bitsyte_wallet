@@ -14,7 +14,7 @@ return [
 
         'mode' => 'sandbox',
 
-        'log.LogEnabled' => false,
+        'log.LogEnabled' => true,
 
         'log.FileName' => 'BlockCypher.log',
 

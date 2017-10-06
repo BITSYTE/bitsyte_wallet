@@ -12,6 +12,11 @@ use BlockCypher\Rest\ApiContext;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+/**
+ * Class TransactionController
+ *
+ * @package App\Http\Controllers\Api\V1
+ */
 class TransactionController extends Controller
 {
     /**
@@ -21,18 +26,20 @@ class TransactionController extends Controller
     /**
      * @var TransactionService
      */
-    private $service;
+    private $transaction;
 
     /**
      * TransactionController constructor.
      *
      * @param ApiContext $apiContext
      * @param TransactionService $service
+     * @internal param TransactionService $service
      */
     public function __construct(ApiContext $apiContext, TransactionService $service)
     {
         $this->apiContext = $apiContext;
-        $this->service = $service;
+        $this->transaction = $service;
+        $this->middleware('allow.transactions');
     }
 
     /**
@@ -65,14 +72,16 @@ class TransactionController extends Controller
     {
         $user = \JWTAuth::parseToken()->authenticate();
 
+        //check if local address exist
         $address = Address::whereAddress($request->sender_address)
-                ->whereUserId($user-id)
+                ->whereUserId($user->id)
                 ->firstOrFail();
 
-        $txSkeleton = $this->service
+        //generate transaction
+        $txSkeleton = $this->transaction
                         ->signWith($address->private)
-                        ->sender($address->address)
-                        ->receiver($request->receiver_address)
+                        ->from($address->address)
+                        ->to($request->receiver_address)
                         ->amount($request->amount)
                         ->send();
 

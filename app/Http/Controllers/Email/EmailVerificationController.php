@@ -6,6 +6,11 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+/**
+ * Class EmailVerificationController
+ *
+ * @package App\Http\Controllers\Email
+ */
 class EmailVerificationController extends Controller
 {
     /**

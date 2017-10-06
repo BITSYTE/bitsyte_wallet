@@ -33,8 +33,7 @@ Route::group(['middleware' => ['jwt.auth'], 'namespace' => 'Api\V1'], function (
         Route::ApiResource('wallets', 'WalletController');
         Route::ApiResource('addresses','AddressController');
         Route::ApiResource('wallets.addresses', 'WalletAddressController');
+        Route::ApiResource('transactions', 'TransactionController@index');
     });
-
-    Route::middleware('allow.transactions')->get('transactions', 'TransactionController@index'); //not implemented
 });
 

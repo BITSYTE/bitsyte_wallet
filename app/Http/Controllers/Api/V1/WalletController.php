@@ -15,9 +15,7 @@ use BlockCypher\Api\Wallet as ApiWallet;
 
 class WalletController extends Controller
 {
-    /**
-     * @var BlockCypherProvider
-     */
+    /** @var BlockCypherProvider */
     private $apiContext;
 
     /** @var  WalletClient $walletClient */
@@ -71,7 +69,7 @@ class WalletController extends Controller
             $user = JWTAuth::parseToken()->authenticate();
 
             $wallet = new ApiWallet();
-            $wallet->setName($user->email);
+            $wallet->setName(str_random(25));
 
             $this->walletClient = new WalletClient($this->apiContext);
             $createdWallet = $this->walletClient->create($wallet);

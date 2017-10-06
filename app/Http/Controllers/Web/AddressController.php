@@ -8,9 +8,22 @@ use BlockCypher\Auth\SimpleTokenCredential;
 use BlockCypher\Client\AddressClient;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
+/**
+ * Class AddressController
+ *
+ * TEST CONTROLLER
+ *
+ * @package App\Http\Controllers\Web
+ */
 class AddressController extends Controller
 {
+    /**
+     * @var
+     */
     private $token;
+    /**
+     * @var ApiContext
+     */
     private $apiContext;
 
     /**
@@ -22,11 +35,17 @@ class AddressController extends Controller
         $this->apiContext = $apiContext;
     }
 
+    /**
+     *
+     */
     public function index()
     {
 
     }
 
+    /**
+     *
+     */
     public function create()
     {
         $addressClient = new AddressClient($this->apiContext);
@@ -34,6 +53,9 @@ class AddressController extends Controller
         dd($addressKeyChain);
     }
 
+    /**
+     * @param $address
+     */
     public function balance($address)
     {
         $addressClient = new AddressClient($this->apiContext);
@@ -41,6 +63,10 @@ class AddressController extends Controller
         dd($addressBalance);
     }
 
+    /**
+     * @param $address
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function qr($address)
     {
         return view('address.qr', ['address' => $address]);

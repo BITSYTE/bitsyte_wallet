@@ -13,6 +13,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class UuidObserver
 {
+    /**
+     * Generate UUID. this is used in resource controller
+     *
+     * @param Model $model
+     */
     public function creating(Model $model)
     {
         if (empty($model->uuid)) {

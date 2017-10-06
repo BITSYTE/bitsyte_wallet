@@ -178,23 +178,15 @@ class RegisterController extends Controller
         $addressKeyChain = $addressClient->generateAddress();
 
         $wallet = new ApiWallet();
-        $wallet->setName($user->email);
+        $wallet->setName(str_random(25));
         $wallet->addAddress($addressKeyChain->getAddress());
 
         $walletClient = new WalletClient($apiContext);
         $createdWallet = $walletClient->create($wallet);
 
-        $address = Address::create([
-            'private' => $addressKeyChain->getPrivate(),
-            'public'  => $addressKeyChain->getPublic(),
-            'address' => $addressKeyChain->getAddress(),
-            'wif'     => $addressKeyChain->getWif(),
-        ]);
+        $address = Address::create($addressKeyChain->toArray());
 
-        $wallet = Wallet::create([
-            'token' => $createdWallet->getToken(),
-            'name' => $createdWallet->getName(),
-        ]);
+        $wallet = Wallet::create($createdWallet->toArray());
 
         $wallet->addAddress($address);
         $user->addWallet($wallet);

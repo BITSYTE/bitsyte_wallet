@@ -14,6 +14,11 @@ use Keygen\Keygen;
 
 class ApiCodeObserver
 {
+    /**
+     * @deprecated  Not used anymore
+     *
+     * @param User $user
+     */
     public function creating(User $user)
     {
         if(empty($user->api_token)) {

@@ -10,19 +10,30 @@ namespace App\Services;
 
 
 use BlockCypher\Client\AddressClient;
+use BlockCypher\Client\FaucetClient;
 use BlockCypher\Client\TXClient;
 use BlockCypher\Client\WalletClient;
 
+/**
+ * Class BlockCypherClientFactory
+ *
+ * Factory for blockcypher sdk clients
+ *
+ * @package App\Services
+ */
 class BlockCypherClientFactory
 {
-    /** @var array  */
+    /** @var array  BLockCypher client classes*/
     private $clients = [
         'wallet' => WalletClient::class,
         'address' => AddressClient::class,
         'transaction' => TXClient::class,
+        'faucet' => FaucetClient::class,
     ];
 
     /**
+     * Factory for BlockCypher SDK Clients
+     *
      * @param $client
      * @return \Illuminate\Foundation\Application|mixed
      */

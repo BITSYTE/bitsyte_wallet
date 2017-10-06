@@ -5,10 +5,17 @@ namespace App\Http\Middleware;
 use Closure;
 use JWTAuth;
 
+/**
+ * Class CheckIfUserCanPerformTransactions
+ *
+ * deny transactions if the user has not been verified
+ *
+ * @package App\Http\Middleware
+ */
 class CheckIfUserCanPerformTransactions
 {
     /**
-     * Handle an incoming request.
+     * Check if user can perform transactions
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next

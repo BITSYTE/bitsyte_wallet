@@ -13,8 +13,19 @@ use BlockCypher\Api\TX;
 use BlockCypher\Api\TXInput;
 use BlockCypher\Api\TXOutput;
 
+/**
+ * Class TransactionService
+ *
+ * Send funds through blockcypher's api
+ *
+ * @package App\Services
+ */
 class TransactionService
 {
+    /**
+     * @var  string
+     */
+    private $priority;
     /**
      * @var  string
      */
@@ -58,7 +69,7 @@ class TransactionService
      * @param $address
      * @return $this
      */
-    public function sender($address)
+    public function from($address)
     {
         $this->input->addAddress($address);
         $this->transaction->addInput($this->input);
@@ -71,7 +82,7 @@ class TransactionService
      * @param $address
      * @return $this
      */
-    public function receiver($address)
+    public function to($address)
     {
         $this->output->addAddress($address);
         $this->transaction->addOutput($this->output);
@@ -105,7 +116,20 @@ class TransactionService
     }
 
     /**
-     * @return mixed
+     * Set priority transaction
+     *
+     * @param $value
+     * @return $this
+     */
+    public function withPriority($value = 'low')
+    {
+        $this->transaction->setPreference($value);
+
+        return $this;
+    }
+
+    /**
+     * @return \BlockCypher\Api\TXSkeleton
      */
     public function send()
     {

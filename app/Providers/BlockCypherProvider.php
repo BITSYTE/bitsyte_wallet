@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use BlockCypher\Auth\SimpleTokenCredential;
 use BlockCypher\Client\AddressClient;
+use BlockCypher\Client\FaucetClient;
 use BlockCypher\Client\TXClient;
 use BlockCypher\Client\WalletClient;
 use BlockCypher\Rest\ApiContext;
@@ -64,11 +65,12 @@ class BlockCypherProvider extends ServiceProvider
 
             return new TXClient($apiContext);
         });
-    }
 
-    public function getCredentials($token)
-    {
-        return new SimpleTokenCredential($token);
+        $this->app->bind(FaucetClient::class, function($app){
+            $apiContext = $app->make(ApiContext::class);
+
+            return new FaucetClient($apiContext);
+        });
     }
 
 }

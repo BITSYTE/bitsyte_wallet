@@ -8,6 +8,11 @@ use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 
+/**
+ * Class EmailVerification: send a email verification
+ *
+ * @package App\Notifications
+ */
 class EmailVerification extends Notification
 {
     use Queueable;

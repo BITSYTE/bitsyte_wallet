@@ -14,6 +14,11 @@ use Keygen\Keygen;
 
 class ConfirmationTokenObserver
 {
+    /**
+     * generate token, This is used by new user notifications
+     *
+     * @param User $user
+     */
     public function creating(User $user)
     {
         if (empty($user->confirmation_token)) {

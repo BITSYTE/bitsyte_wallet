@@ -6,6 +6,11 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+/**
+ * Class UserController
+ *
+ * @package App\Http\Controllers\Api\V1
+ */
 class UserController extends Controller
 {
     /**
@@ -74,7 +79,7 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        return response()->json(['data' => $user->update($request->all())]);
     }
 
     /**
@@ -85,6 +90,6 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        return response()->json(['data' => $user->delete()]);
     }
 }

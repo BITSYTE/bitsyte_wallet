@@ -14,6 +14,11 @@ use BlockCypher\Client\AddressClient;
 use Illuminate\Database\QueryException;
 use Illuminate\Auth\Access\AuthorizationException;
 
+/**
+ * Class WalletAddressController
+ *
+ * @package App\Http\Controllers\Api\V1
+ */
 class WalletAddressController extends Controller
 {
     /** @var ApiContext */

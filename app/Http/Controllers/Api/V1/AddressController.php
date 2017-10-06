@@ -11,6 +11,11 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use JWTAuth;
 
+/**
+ * Class AddressController
+ *
+ * @package App\Http\Controllers\Api\V1
+ */
 class AddressController extends Controller
 {
     /**
@@ -18,6 +23,9 @@ class AddressController extends Controller
      */
     private $apiContext;
 
+    /**
+     * @var \BlockCypher\Api\Address
+     */
     private $addressKeyChain;
 
     /**
@@ -27,6 +35,7 @@ class AddressController extends Controller
 
     /**
      * AddressController constructor.
+     *
      * @param ApiContext $apiContext
      * @param BlockCypherClientFactory $clientFactory
      */

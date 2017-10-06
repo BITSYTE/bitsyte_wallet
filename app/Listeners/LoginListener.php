@@ -10,6 +10,11 @@ use Illuminate\Http\Request;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
+/**
+ * Class LoginListener
+ *
+ * @package App\Listeners
+ */
 class LoginListener
 {
     /**

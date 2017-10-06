@@ -50,6 +50,9 @@ class EventServiceProvider extends ServiceProvider
         $this->registerConfirmationTokenObservers();
     }
 
+    /**
+     * Register the classes that need a UUID
+     */
     public function registerUuidObservers()
     {
         collect($this->models)->each(function($model) {
@@ -58,6 +61,9 @@ class EventServiceProvider extends ServiceProvider
         });
     }
 
+    /**
+     * @deprecated no used anymore, remove in future refactoring
+     */
     public function registerApiCodeObservers()
     {
         collect($this->models)->each(function($model) {
@@ -66,6 +72,9 @@ class EventServiceProvider extends ServiceProvider
         });
     }
 
+    /**
+     * Registers classes that need code confirmation
+     */
     public function registerConfirmationTokenObservers()
     {
         collect($this->models)->only('user')->each(function($model) {
